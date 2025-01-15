@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const ProtectedLayout = ({ children }) => {
 
@@ -8,6 +9,7 @@ const ProtectedLayout = ({ children }) => {
       <Header />
       {/* Main Content */}
       <main>{children}</main>
+      <Footer/>
     </div>
   );
 };

@@ -3,14 +3,23 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-reac
 
 export default function Header() {
   return (
-    <div>
-    <SignedOut>
-      <SignInButton />
-    </SignedOut>
-    <SignedIn>
-      <UserButton />
-    </SignedIn>
-    <p>hello world</p>
-  </div>
+    <header className='header'>
+      <div className='header-content'>
+        {/* Logo and clinic name */}
+        <div className='logo-container'>
+          <img src="/images/logo.png" alt="Clinic Logo" className='logo-img'/>
+          <h1 className='clinic-name'>Saqellari Dental Clinic</h1>
+        </div>
+
+        <nav className='navbar'>
+          <SignedOut>
+            <SignInButton className='auth-button' />
+          </SignedOut>
+          <SignedIn>
+            <UserButton className='auth-button' />
+          </SignedIn>
+        </nav>
+      </div>
+    </header>
   )
 }

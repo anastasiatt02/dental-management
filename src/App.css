@@ -1,0 +1,64 @@
+
+:root {
+    --red: #FF0000;
+    --blue: #00BFFF;
+    --green: #ADFF2F;
+    --grey-light: #f4f4f4;
+}
+
+/* Header design */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: var(--blue);
+    color: var(--grey-light);
+    padding: 10px;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 80px;
+    width: auto;
+}
+
+.clinic-name {
+    /* margin: 0; */
+    font-size: 1.5rem;
+}
+
+/* .navbar {
+    display: flex;
+    gap: 15px;
+} */ /* signin button */
+
+/* .navbar a:hover {
+    color: var(---green);
+} */ /*hoover effect to the signin button*/
+
+/* Footer design */
+.footer {
+    background-color: var(--red);
+    color: var(--grey-light);
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; 
+    width: 100%;
+    padding: 20px 20px;
+    box-sizing: border-box;
+}
