@@ -14,10 +14,16 @@ export default function CreatePatient() {
     });
 
     const onSubmit = async (data) => {
-        const patientData = {...data, role: 'patient'}; // set the role - patient
-        console.log('patient data', patientData);
-        alert('Patient form submitted successfully!')
-        // connection to supabase
+        try {
+            const patientData = {...data, role: 'patient'}; // set the role - patient
+            console.log('data to be sent', patientData); // debug line
+            const { error } = await supabase.from('users').insert(patientData);
+            if (error) throw error;
+            alert('Patient form submitted successfully!')
+        } catch (error) {
+            console.error('Error creating patient: ', error.message);
+            alert('Failed to create patient.');
+        }
     };
 
     return (
@@ -26,8 +32,8 @@ export default function CreatePatient() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <label>
                     Full name:
-                    <input type="text" {...register('fullName')} />
-                    {errors.fullName && <p>{errors.fullName.message}</p>}
+                    <input type="text" {...register('full_name')} />
+                    {errors.full_name && <p>{errors.full_name.message}</p>}
                 </label>
                 <label>
                     Email:
@@ -36,23 +42,23 @@ export default function CreatePatient() {
                 </label>
                 <label>
                     Phone number: 
-                    <input type="text" {...register('phoneNumber')} />
-                    {errors.phoneNumber && <p>{errors.phoneNumber.message}</p>}
+                    <input type="text" {...register('phone_number')} />
+                    {errors.phone_number && <p>{errors.phone_number.message}</p>}
                 </label>
                 <label>
                     Date of birth:
-                    <input type="date" {...register('dateOfBirth')} />
-                    {errors.dateOfBirth && <p>{errors.dateOfBirth.message}</p>}
+                    <input type="date" {...register('date_of_birth')} />
+                    {errors.date_of_birth && <p>{errors.date_of_birth.message}</p>}
                 </label>
                 <label>
                     Emergency contact name:
-                    <input type="text" {...register('emergencyName')} />
-                    {errors.emergencyName && <p>{errors.emergencyName.message}</p>}
+                    <input type="text" {...register('emergency_name')} />
+                    {errors.emergency_name && <p>{errors.emergency_name.message}</p>}
                 </label>
                 <label>
                     Emergency contact number:
-                    <input type="text" {...register('emergencyContact')} />
-                    {errors.emergencyContact && <p>{errors.emergencyContact.message}</p>}
+                    <input type="text" {...register('emergency_contact')} />
+                    {errors.emergency_contact && <p>{errors.emergency_contact.message}</p>}
                 </label>
 
                 <button type="submit">Submit</button>
