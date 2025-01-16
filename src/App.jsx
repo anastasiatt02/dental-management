@@ -6,6 +6,7 @@ import AuthGuard from "./components/AuthGuard";
 import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
 import CreatePatient from "./components/CreatePatient";
+import HealthHistory from "./components/HealthHistory";
 import './App.css'
 
 function App() {
@@ -37,6 +38,14 @@ function App() {
           element={
             <AuthGuard>
               <CreatePatient />
+            </AuthGuard>
+          }
+        />
+        <Route
+          path="/health-history"
+          element={
+            <AuthGuard>
+              <HealthHistory />
             </AuthGuard>
           }
         />

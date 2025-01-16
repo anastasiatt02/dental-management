@@ -1,10 +1,12 @@
 import React from "react";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useNavigate } from "react-router-dom";
 import patientSchema from "./patientSchema";
-import supabase from "../supabaseClient";
+// import supabase from "../supabaseClient";
 
 export default function CreatePatient() {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -13,23 +15,15 @@ export default function CreatePatient() {
         mode: 'onBlur'
     });
 
-    const onSubmit = async (data) => {
-        try {
-            const patientData = {...data, role: 'patient'}; // set the role - patient
-            console.log('data to be sent', patientData); // debug line
-            const { error } = await supabase.from('users').insert(patientData);
-            if (error) throw error;
-            alert('Patient form submitted successfully!')
-        } catch (error) {
-            console.error('Error creating patient: ', error.message);
-            alert('Failed to create patient.');
-        }
-    };
+    const onNext = (data) => {
+        console.log('User details: ', data);
+        navigate('/health-history', { state: data}); // navigate to health history page and pass the data from create patient
+    }
 
     return (
         <div className="form-container">
             <h1>Create new patient</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onNext)}>
                 <label>
                     Full name:
                     <input type="text" {...register('full_name')} />
@@ -61,7 +55,7 @@ export default function CreatePatient() {
                     {errors.emergency_contact && <p>{errors.emergency_contact.message}</p>}
                 </label>
 
-                <button type="submit">Submit</button>
+                <button type="submit">Next</button>
             </form>
         </div>
     );
