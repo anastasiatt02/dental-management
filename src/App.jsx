@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import AuthGuard from "./components/AuthGuard";
 import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
+import CreatePatient from "./components/CreatePatient";
 import './App.css'
 
 function App() {
@@ -28,6 +29,14 @@ function App() {
           element={
             <AuthGuard>
               <Patients />
+            </AuthGuard>
+          }
+        />
+        <Route
+          path="/create-patient"
+          element={
+            <AuthGuard>
+              <CreatePatient />
             </AuthGuard>
           }
         />
