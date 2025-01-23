@@ -39,6 +39,19 @@ body {
 .clinic-name {
     /* margin: 0; */
     font-size: 1.5rem;
+    color: var(--grey-light);
+}
+
+.auth-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--red);
+    background-color: var(--grey-light);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 /* .navbar {
@@ -62,3 +75,230 @@ body {
     padding: 20px 20px;
     box-sizing: border-box;
 }
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 0, 0, 0, 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Dashboard  */
+.dashboard,
+.patients,
+.appointments {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
+    min-height: 75vh;
+    background-color: var(--grey-light);
+    padding: 20px;
+}
+
+.dashboard h1,
+.patients h1,
+.appointments h1 {
+    font-size: 2rem;
+    color: #343a40;
+    margin-bottom: 30px;
+}
+
+.dashboard-actions,
+.patients-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.action-button-d,
+.action-button-p,
+.appointments-actions {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-button-d:hover,
+.action-button-p:hover {
+    /* background-color:#0056b3; */
+    transform: scale(1.05);
+}
+
+.action-button-d:active,
+.action-button-p:active {
+    background-color: var(--green);
+    transform: scale(0.95);
+}
+
+/* patients */
+.form-container { /* shiko ta besh join me appointment qe mos te repeat*/
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--grey-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+    /* color: var(--blue); */
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+form input {
+    width: 95%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* form-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 5px var(--green);
+} */
+
+form p {
+    color: var(--red);
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+form button[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button[type='submit']:hover {
+    /* background-color: var(--green); */
+    transform: scale(1.05);
+}
+
+form button[type='submit']:active {
+    background-color: var(--red);
+    transform: scale(0.95);
+}
+
+
+/* patients page */
+/* .patients-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+} */
+
+
+
+/* home page */
+.welcome-section,
+.story-section,
+.services-section,
+.contact-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    margin: 0 auto 30px;
+    background-color: var(--grey-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    line-height: 150%;
+    font-size: 1rem;
+}
+
+.welcome-section,
+.story-section {
+    text-align: center;
+}
+
+.welcome-section h1 {
+    color: var(--blue);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.services-section h2,
+.story-section h2,
+.contact-section h2 {
+    color: var(--blue);
+    font-size: 1.5rem;
+}
+
+.map-hours-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 90px;
+}
+
+.map iframe {
+    width: 100%;
+    max-width: 250px;
+    height: 200px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.opening-hours {
+    text-align: right;
+}
+
+.opening-hours ul {
+    list-style:none;
+    padding: 0;
+}
+
+.opening-hours li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+
