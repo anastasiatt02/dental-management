@@ -4,9 +4,10 @@ import Footer from '../components/Footer'
 
 export default function HomePage() {
   return (
-    <div className='homrpage'>
+    <div className='homepage'>
       <Header />
       <main className='main-content'>
+
         <section className='welcome-section'>
           <h1>Welcome to Saqellari Dental Clinic</h1>
           <p>
@@ -18,6 +19,7 @@ export default function HomePage() {
           </p>
           <p>Schedule your appointment today and experience the difference at Saqellari Dental Clinic!</p>
         </section>
+
         <section className='story-section'>
           <h2>Our story</h2>
           <p>
@@ -30,22 +32,25 @@ export default function HomePage() {
           As we look to the future, we remain dedicated to our mission: to make every visit comfortable, stress-free, and focused on achieving optimal oral health for all our patients.
           </p>
         </section>
-        <section className='services-section'>
-          <h2>Our services</h2>
-          <p>We offer a wide range of dental services
-            <ul>
-              <li>Crowns</li>
-              <li>Fillings</li>
-              <li>Root canal</li>
-              <li>Teeth whitening</li>
-              <li>dentures</li>
-              <li>tooth removal</li>
-              <li>composite bonding</li>
-            </ul>
-          </p>
-        </section>
-        <section className='contact-section'>
-          <div className='map-hours-container'>
+
+        <div className='services-location-times'>
+
+          <section className='services-section'>
+            <h2>Our services</h2>
+            <p>We offer a wide range of dental services
+              <ul>
+                <li>Crowns</li>
+                <li>Fillings</li>
+                <li>Root canal</li>
+                <li>Teeth whitening</li>
+                <li>dentures</li>
+                <li>tooth removal</li>
+                <li>composite bonding</li>
+              </ul>
+            </p>
+          </section>
+
+          <section className='location-section'>
             <div className='map-address'>
               <h2>Find us</h2>
               <p>Rexhep Shala Street</p>
@@ -60,24 +65,21 @@ export default function HomePage() {
                 title="Google Maps Location"
               />
             </div>
-            <div className='opening-hours'>
-              <h2>Opening hours</h2>
-                <ul>
-                  <li>Monday: 9:00 am - 6:00 pm</li>
-                    <li>Tuesday: 9:00 am - 6:00 pm</li>
-                    <li>Wednesday: 9:00 am - 6:00 pm</li>
-                    <li>Thursday: 9:00 am - 6:00 pm</li>
-                    <li>Friday: 9:00 am - 6:00 pm</li>
-                    <li>Saturday: 9:00 am - 6:00 pm</li>
-                    <li>Sunday: Closed</li>
-                </ul>
-            </div>
+          </section>
 
-          </div>
-          
-          
-          
+          <section className='opening-hours'>
+            <h2>Opening hours</h2>
+              <ul>
+                <li>Monday: 9:00 am - 6:00 pm</li>
+                <li>Tuesday: 9:00 am - 6:00 pm</li>
+                <li>Wednesday: 9:00 am - 6:00 pm</li>
+                <li>Thursday: 9:00 am - 6:00 pm</li>
+                <li>Friday: 9:00 am - 6:00 pm</li>
+                <li>Saturday: 9:00 am - 6:00 pm</li>
+                <li>Sunday: Closed</li>
+              </ul>
         </section>
+        </div>
       </main>
       <Footer/>
     </div>

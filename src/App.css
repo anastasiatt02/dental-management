@@ -242,14 +242,14 @@ form button[type='submit']:active {
 .welcome-section,
 .story-section,
 .services-section,
-.contact-section {
+.location-section,
+.opening-hours {
     margin-bottom: 30px;
     padding: 20px;
-    margin: 0 auto 30px;
     background-color: var(--grey-light);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    line-height: 150%;
+    line-height: 1.5;
     font-size: 1rem;
 }
 
@@ -266,28 +266,37 @@ form button[type='submit']:active {
 
 .services-section h2,
 .story-section h2,
-.contact-section h2 {
+.opening-hours h2,
+.location-section h2 {
     color: var(--blue);
     font-size: 1.5rem;
 }
 
-.map-hours-container {
+.services-location-times {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 90px;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.services-section,
+.location-section,
+.opening-hours{
+    flex: 1;
+    min-width: 280px;
+    padding: 20px;
 }
 
 .map iframe {
     width: 100%;
-    max-width: 250px;
+    max-width: 600px;
     height: 200px;
     border-radius: 10px;
     border: 0;
 }
 
-.opening-hours {
-    text-align: right;
+.contact-section {
+    text-align: left;
 }
 
 .opening-hours ul {
@@ -298,7 +307,6 @@ form button[type='submit']:active {
 .opening-hours li {
     font-size: 1rem;
     margin-bottom: 5px;
-    color: #333;
 }
 
 
