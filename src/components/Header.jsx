@@ -1,5 +1,6 @@
 import React from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
+// import '../components/header.css';
 
 export default function Header() {
   return (

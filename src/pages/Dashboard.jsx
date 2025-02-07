@@ -1,9 +1,14 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useUser } from '@clerk/clerk-react';
+
 
 export default function Dashboard() {
 
   const navigate = useNavigate();
+  const { isSignedIn } = useUser(); //check the user has been authenticated
+
+  // direct to login if user not signed in
 
   const goToPatients = () => {
     navigate('/patients');

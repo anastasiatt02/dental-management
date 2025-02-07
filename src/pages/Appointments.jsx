@@ -82,7 +82,7 @@ function PopupWindow({ onClose }) {
     }, [searchQuery]); //runs whenever searchQuery changes
 
     const selectPatient = (patient) => {
-      setSearchingQuery(patient.full_name);
+      setSearchQuery(patient.full_name);
       setSearchResults([]);
     }
 

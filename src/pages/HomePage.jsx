@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useState }from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import  { useUser } from '@clerk/clerk-react'; // for authentication
+import { Link } from 'react-router-dom'; //for navigation
 
 export default function HomePage() {
+  
+  const { isSignedIn } = useUser(); // get the login status from Clerk
+  
+
   return (
     <div className='homepage'>
       <Header />
+
+      {/* need to show navigation button only when user is signed in */}
+      {isSignedIn && (
+        <div className='nav-bar'>
+          <ul className='nav-links'>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/dashboard'>Dashboard</Link></li>
+            <li><Link to='/patients'>Patients</Link></li>
+            <li><Link to='/appointments'>Appointments</Link></li>
+            
+          </ul>
+        </div>
+      )}
+
       <main className='main-content'>
 
         <section className='welcome-section'>

@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import Footer from "./components/Footer";
 import AuthGuard from "./components/AuthGuard";
 import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
