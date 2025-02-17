@@ -56,17 +56,19 @@ export default function CreatePatient() {
                 role: "patient", // automatically assign
                 health_history: [
                      {
-                    medical_condition: data.medical_condition || null,
-                    allergies: data.allergies || null,
-                    medications: data.medications || null,
+                    medical_condition: data.medical_condition,
+                    allergies: data.allergies,
+                    medications: data.medications,
                     last_updated: new Date().toISOString(),},],
-            };
+            }; // health history
 
             console.log("data to be sent to database: ", patientDetails);
             console.log('health history array:', patientDetails.health_history);
+            console.log(patientDetails);
 
-            const { error } = await supabase.from("users").insert([patientDetails]);
-            if (error) throw error;
+            const result = await supabase.from("users").insert([patientDetails]).select();
+            // if (error) throw error;
+            console.log(result);
 
             alert("patient form submited successfully!");
 
@@ -117,7 +119,7 @@ export default function CreatePatient() {
                         <h4>Health history</h4>
                         <label>
                             Do you have any long term medical condition?
-                            <input type="text" {...register("medical_conditions")} />
+                            <input type="text" {...register("medical_condition")} />
                             {errors.medical_conditions && (
                                 <p>{errors.medical_conditions.message}</p>
                             )}

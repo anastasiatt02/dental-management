@@ -8,6 +8,9 @@ const patientSchema = z.object({
     date_of_birth: z.string().refine((date) => !isNaN(Date.parse(date))),
     emergency_name: z.string().optional(),
     emergency_contact: z.string().optional(),
+    medical_condition: z.string().optional(),
+    allergies: z.string().optional(),
+    medications: z.string().optional()
 })
 
 export default patientSchema;
