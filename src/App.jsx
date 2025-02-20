@@ -5,9 +5,9 @@ import AuthGuard from "./components/AuthGuard";
 import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
 import CreatePatient from "./components/CreatePatient";
-import HealthHistory from "./components/HealthHistory";
 import Appointments from "./pages/Appointments";
-import './App.css'
+// import './App.css'
+import CreateAppointment from "./pages/CreateAppointment";
 
 function App() {
   return (
@@ -42,18 +42,18 @@ function App() {
           }
         />
         <Route
-          path="/health-history"
-          element={
-            <AuthGuard>
-              <HealthHistory />
-            </AuthGuard>
-          }
-        />
-        <Route
           path="/appointments"
           element={
             <AuthGuard>
               <Appointments />
+            </AuthGuard>
+          }
+        />
+        <Route
+          path="/create-appointment"
+          element={
+            <AuthGuard>
+              <CreateAppointment />
             </AuthGuard>
           }
         />

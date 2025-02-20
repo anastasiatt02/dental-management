@@ -3,6 +3,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import  { useUser } from '@clerk/clerk-react'; // for authentication
 import { Link } from 'react-router-dom'; //for navigation
+// import '../styles/homepage.css';
 
 export default function HomePage() {
   

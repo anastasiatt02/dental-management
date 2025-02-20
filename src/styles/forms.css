@@ -1,0 +1,66 @@
+.form-container { /* shiko ta besh join me appointment qe mos te repeat*/
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: var(--grey-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h3 {
+    /* color: var(--blue); */
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+form input {
+    width: 95%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* form-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 5px var(--green);
+} */
+
+form p {
+    color: var(--red);
+    font-size: 0.9rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+form button[type='submit'] {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button[type='submit']:hover {
+    /* background-color: var(--green); */
+    transform: scale(1.05);
+}
+
+form button[type='submit']:active {
+    transform: scale(0.95);
+}

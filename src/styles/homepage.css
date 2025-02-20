@@ -1,0 +1,101 @@
+
+/* home page */
+.welcome-section,
+.story-section,
+.services-section,
+.location-section,
+.opening-hours {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: var(--grey-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.welcome-section,
+.story-section {
+    text-align: center;
+}
+
+.welcome-section h1 {
+    color: var(--blue);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.services-section h2,
+.story-section h2,
+.opening-hours h2,
+.location-section h2 {
+    color: var(--blue);
+    font-size: 1.5rem;
+}
+
+.services-location-times {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.services-section,
+.location-section,
+.opening-hours{
+    flex: 1;
+    min-width: 280px;
+    padding: 20px;
+}
+
+.map iframe {
+    width: 100%;
+    max-width: 600px;
+    height: 200px;
+    border-radius: 10px;
+    border: 0;
+}
+
+.contact-section {
+    text-align: left;
+}
+
+.opening-hours ul {
+    list-style:none;
+    padding: 0;
+}
+
+.opening-hours li {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* homepage nav bar */
+.nav-bar {
+    width: 100%;
+    background-color: var(--blue);
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}

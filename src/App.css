@@ -366,3 +366,73 @@ form button[type='submit']:active {
 .nav-links a:hover {
     text-decoration: underline;
 }
+
+
+/* create appointment */
+.create-appointment {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: var(--grey-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.create-appointment h2 {
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+.create-appointment form {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1px; */
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+input, textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    outline: none;
+    transition: 1px solid var(--green);
+}
+
+/* input:focus, textarea:focus {
+    border: 1px solid var(--green);
+} */
+
+textarea {
+    resize: none;
+    height: 80px;
+    width: 475px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+}
+
+ul li {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cancel-button {
+    background-color: var(--blue);
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: var(--red);
+}
