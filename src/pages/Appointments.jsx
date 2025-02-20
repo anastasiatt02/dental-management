@@ -29,15 +29,24 @@ export default function Appointments() {
 
       if (error) throw error;
 
+      // assign colours for procedures 
+      const getColourByProcedureType = (type) => {
+        switch (type.toLowerCase()) {
+          case 'emergency': return '#FF0000'; // red for emergencies to stand out
+          case 'check-up': return '#80cb0f'; // green for check-up
+          default: return '#00aee8'; // blue as default - for the rest of the procedures
+        }
+      }
+
       // console.log("fetched appointments data: ", data); //
 
       // prepare data for FullCalendar format to add on calendar
       const formatedAppointments = data.map((appointment) => ({
-
+        appointment_id: appointment.appointment_id,
         title: `${appointment.procedure.procedure_name} - ${appointment.patient.full_name}`,
         start: appointment.appointment_date,
         end: new Date(new Date(appointment.appointment_date).getTime() + appointment.procedure.duration_minutes * 60000),
-        // backgroundColor
+        backgroundColor: getColourByProcedureType(appointment.procedure.procedure_name),
       }));
 
       setAppointmentSlot(formatedAppointments);
@@ -47,6 +56,35 @@ export default function Appointments() {
   };
   fetchAppointments();
 }, []);
+
+  // deal with clicking and canceling event from calendar dicplay
+  const handleEventClick = async (clickInfo) => {
+    const confirmCancel = window.confirm(
+      `Do you want to cancel this appointment "${clickInfo.event.title}"?`
+    );
+
+    if (confirmCancel) {
+      try {
+        const appointmentId = clickInfo.event.extendedProps.appointment_id;
+
+        const { error } = await supabase
+          .from("appointments")
+          .update({status: "canceled"}) // change status to cancelled for the event
+          .eq("appointment_id", appointmentId);
+
+        if (error) throw error;
+
+        // remove event from calendar
+        setAppointmentSlot((prevAppointments) => 
+          prevAppointments.filter((event) => event.appointment_id !== appointmentId)
+        );
+
+        alert("Appointment cancelled successfully.");
+      } catch (error) {
+        console.error("Error canceling appointment", error.message);
+      }
+    }
+  };
 
   return (   // renders page name and create appointment button 
     <div className='appointments'>
@@ -65,6 +103,7 @@ export default function Appointments() {
           right: "dayGridMonth, timeGridWeek, timeGridDay",
         }}
         events={appointmentSlot}
+        eventClick={handleEventClick}
       />
 
     </div>
