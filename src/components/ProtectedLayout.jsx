@@ -3,10 +3,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
-
+import { useTranslation } from 'react-i18next';
 
 const ProtectedLayout = ({ children }) => {
   const { isSignedIn } = useUser();
+  const {t} = useTranslation();
 
 
   return (
