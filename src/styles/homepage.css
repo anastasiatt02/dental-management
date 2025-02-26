@@ -1,3 +1,10 @@
+:root {
+    --red: #FF0000;
+    --blue: #00BFFF;
+    --green: #ADFF2F;
+    --grey-light: #f4f4f4;
+    
+}
 
 /* home page */
 .welcome-section,

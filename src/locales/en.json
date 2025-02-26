@@ -1,0 +1,55 @@
+{
+    "common": {
+        "labels":{
+            "name": "name"
+        }
+    },
+
+    "homepage": {
+        "welcome-title": "Welcome to Saqellari Dental Clinc",
+        "story-title": "Our story",
+
+        "services-title": "Our services",
+
+        "services-text": "We offer a wide range of dental services",
+        "crown": "Crowns",
+        "filling": "Fillings",
+        "root-canal": "Root canal",
+        "whitening": "Teeth whitening",
+        "denture": "Dentures",
+        "extraction": "Tooth removal",
+        "bonding": "Composite bonding",
+
+        "location-title": "Find us",
+        "street": "Rexhep Shala Street",
+        "city-code": "Tirana 1001",
+        "country": "Albania",
+
+        "work-hours": "Opening hours",
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday",
+        "closed": "Closed",
+        
+        "exampleDynamic": "The patient {{name}} feels {{v}}"
+
+    },
+
+    "header": {
+        "clinic-name": "Saqellari Dental Clinic"
+
+    },
+
+    "protected": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "patients": "Patients",
+        "appointments": "Appointments"
+    }
+
+
+}
