@@ -4,10 +4,12 @@ import Footer from '../components/Footer'
 import  { useUser } from '@clerk/clerk-react'; // for authentication
 import { Link } from 'react-router-dom'; //for navigation
 // import '../styles/homepage.css';
+import { useTranslation } from 'react-i18next';
 
 export default function HomePage() {
   
   const { isSignedIn } = useUser(); // get the login status from Clerk
+  const { t } = useTranslation();
   
 
   return (
@@ -30,7 +32,8 @@ export default function HomePage() {
       <main className='main-content'>
 
         <section className='welcome-section'>
-          <h1>Welcome to Saqellari Dental Clinic</h1>
+          <h1>{t('homepage.welcome-title')} </h1>
+          {/* <h1>{t('homepage.exampleDynamic',{v:"", name:"Anastasia"})} </h1> */}
           <p>
             At Saqellari Dental Clinic, we believe in creating healthy, 
             beautiful smiles that last a lifetime. Whether you are here for a routing check-up, cosmetic dentistry, 
@@ -38,11 +41,12 @@ export default function HomePage() {
             dental services in a warm and friendly environment. Your comfort and oral health are our top priorities.
             Let us help you achieve the smile of your dreams!
           </p>
+          {/* <p>{t('homepage.welcome-text')}</p> */}
           <p>Schedule your appointment today and experience the difference at Saqellari Dental Clinic!</p>
         </section>
 
         <section className='story-section'>
-          <h2>Our story</h2>
+          <h2>{t('homepage.story-title')}</h2>
           <p>
           Founded in 2013, Saqellari Dental Clinic has been serving the community with a commitment to excellence in dental care. 
           What began as a small practice has grown into a trusted clinic known for personalized care and state-of-the-art technology.
@@ -57,26 +61,26 @@ export default function HomePage() {
         <div className='services-location-times'>
 
           <section className='services-section'>
-            <h2>Our services</h2>
-            <p>We offer a wide range of dental services
+            <h2>{t('homepage.services-title')}</h2>
+            <p>
               <ul>
-                <li>Crowns</li>
-                <li>Fillings</li>
-                <li>Root canal</li>
-                <li>Teeth whitening</li>
-                <li>dentures</li>
-                <li>tooth removal</li>
-                <li>composite bonding</li>
+                <li>{t('homepage.crown')}</li>
+                <li>{t('homepage.filling')}</li>
+                <li>{t('homepage.root-canal')}</li>
+                <li>{t('homepage.whitening')}</li>
+                <li>{t('homepage.denture')}</li>
+                <li>{t('homepage.extraction')}</li>
+                <li>{t('homepage.bonding')}</li>
               </ul>
             </p>
           </section>
 
           <section className='location-section'>
             <div className='map-address'>
-              <h2>Find us</h2>
-              <p>Rexhep Shala Street</p>
-              <p>Tirana 1001</p>
-              <p>Albania</p>
+              <h2>{t('homepage.location-title')}</h2>
+              <p>{t('homepage.street')}</p>
+              <p>{t('homepage.city-code')}</p>
+              <p>{t('homepage.country')}</p>
             </div>
             <div className='map'>
               <iframe
@@ -89,15 +93,15 @@ export default function HomePage() {
           </section>
 
           <section className='opening-hours'>
-            <h2>Opening hours</h2>
+            <h2>{t('homepage.work-hours')}</h2>
               <ul>
-                <li>Monday: 9:00 am - 6:00 pm</li>
-                <li>Tuesday: 9:00 am - 6:00 pm</li>
-                <li>Wednesday: 9:00 am - 6:00 pm</li>
-                <li>Thursday: 9:00 am - 6:00 pm</li>
-                <li>Friday: 9:00 am - 6:00 pm</li>
-                <li>Saturday: 9:00 am - 6:00 pm</li>
-                <li>Sunday: Closed</li>
+                <li>{t('homepage.monday')}: 9:00 - 18:00 </li>
+                <li>{t('homepage.tuesday')}: 9:00 - 18:00</li>
+                <li>{t('homepage.wednesday')}: 9:00 - 18:00</li>
+                <li>{t('homepage.thursday')}: 9:00 - 18:00</li>
+                <li>{t('homepage.friday')}: 9:00 - 18:00</li>
+                <li>{t('homepage.saturday')}: 9:00 - 18:00</li>
+                <li>{t('homepage.sunday')}: {t('homepage.closed')}</li>
               </ul>
         </section>
         </div>
