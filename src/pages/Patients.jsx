@@ -15,15 +15,39 @@ export default function Patients() {
     navigate("/create-patient");
   };
 
+  const supabaseDateFormat = (inputDate) => {
+    const dateParts = inputDate.split(".");
+    if (dateParts.length === 3) {
+      const [day, month, year] = dateParts;
+      return `${year}-${month}-${day}`; // convert the date to supabse format yyyy-mm-dd
+    }
+    return inputDate;
+  };
+
   //get patients
   const getPatients = async (query = '') => {
     setLoading(true);
     try {
-      let request = supabase.from('users').select('*');
+      // let request = supabase.from('users').select('*');
+      let request;
 
       if (query.trim()) {
-        request = request.ilike('full_name', `%${query}%`); //case insensitive search
+        
+        if (/^\d{2}\.\d{2}\.\d{4}$/.test(query.trim())){
+          const formatedDate = supabaseDateFormat(query.trim()); // convert the date entered to the way supabase accepts it
 
+          request= supabase
+            .from('users')
+            .select('id, full_name, date_of_birth')
+            .eq('date_of_birth', formatedDate); // search by date
+        } else {
+          request = supabase
+            .from('users')
+            .select('id, full_name, date_of_birth')
+            .ilike('full_name', `%${query}%`); //search by name
+        }
+      } else {
+        request = supabase.from('users').select('id, full_name, date_of_birth');
       }
 
       const { data, error } = await request;
@@ -64,7 +88,7 @@ export default function Patients() {
 
         {/* create patient button */}
       <button className='action-button-p' onClick={handleCreatePatient}>Create patient</button>
-      {/* <p>{JSON.stringify(patients)}</p> */}
+
       </div>
 
       {/* diplay patients or loading */}
@@ -74,7 +98,9 @@ export default function Patients() {
         <ul className='patients-list'>
           {patients.map((patient) =>(
             <li key={patient.id} className='patient-item'>
-              {patient.full_name}
+              <span>{patient.full_name}</span>
+              <span style={{float: 'right', color: '#555'}}>
+                {patient.date_of_birth ? patient.date_of_birth.split("-").reverse().join(".") : ""}</span>
             </li>
           ))}
         </ul>
