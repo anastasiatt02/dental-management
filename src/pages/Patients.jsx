@@ -97,7 +97,7 @@ export default function Patients() {
       ) : patients.length > 0 ? (
         <ul className='patients-list'>
           {patients.map((patient) =>(
-            <li key={patient.id} className='patient-item'>
+            <li key={patient.id} className='patient-item' onClick={()=> navigate(`/patient-profile/${patient.id}`)}>
               <span>{patient.full_name}</span>
               <span style={{float: 'right', color: '#555'}}>
                 {patient.date_of_birth ? patient.date_of_birth.split("-").reverse().join(".") : ""}</span>
