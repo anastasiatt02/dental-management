@@ -109,6 +109,14 @@ export default function Appointments() {
     }
   }
 
+  const handleDateClick = (info) => {
+    const selectedDateTime = new Date(info.date);
+    const formatedDate = selectedDateTime.toISOString().split("T")[0];
+    const formatedTime = selectedDateTime.toTimeString().split(" ")[0].substring(0, 5);
+
+    navigate(`/create-appointment?date=${formatedDate}&time=${formatedTime}`);
+  };
+
   return (   
     <div className='appointments-page'>
       {/* <Sidebar/> */}
@@ -133,11 +141,12 @@ export default function Appointments() {
             right: "dayGridMonth, timeGridWeek, timeGridDay",
           }}
           slotMinTime="08:00:00" // start calendar dispaly at 8am
-          slotMaxTime="21:00:00" // end calendar dispaly time at 9pm
+          slotMaxTime="20:00:00" // end calendar dispaly time at 9pm
           height="100%"
           contentHeight="auto"
           events={appointmentSlot}
           eventClick={handleEventClick}
+          dateClick={handleDateClick}
         />
       </div>
       </div>

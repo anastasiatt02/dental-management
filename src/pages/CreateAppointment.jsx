@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 // import '../styles/forms.css';
 
 export default function CreateAppointment() {
 
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams(); // exact parameters from url
+
+    // prefilled date and time from calendar click
+    const prefilledDate = searchParams.get("date");
+    const prefilledTime = searchParams.get("time");
+    
 
     // state form for patients
     const [searchQuery, setSearchQuery] = useState(""); // patient search input by doctor, empty 
@@ -23,10 +29,11 @@ export default function CreateAppointment() {
     const [selectedProcedure, setSelectedProcedure] = useState(null);
   
     // date and hour of appointment
-    const [appointmentDate, setAppointmentDate] = useState(""); // store selected date
-    const [appointmentTime, setAppointmentTime] = useState(""); // store selected time
+    const [appointmentDate, setAppointmentDate] = useState(prefilledDate || ""); // store selected date
+    const [appointmentTime, setAppointmentTime] = useState(prefilledTime || ""); // store selected time
     const [appointmentDetails, setAppointmentDetails] = useState(""); // optioonally add appointmet notes
   
+
     // triggered whenever searchQuery changes - fetching patients data
     useEffect(() =>{
       const fetchPatients = async () => {  // check the search query has at least 2 characters, oyherwise clear the search results
