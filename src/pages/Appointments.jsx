@@ -6,17 +6,15 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from'@fullcalendar/interaction';
 import { useNavigate } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
 
 
 export default function Appointments() {
 
   const navigate = useNavigate()
-  const [isPopupOpen, setIsPopupOpen] = useState(false); //visibility of pop up window, intially invisible
   const [appointmentSlot, setAppointmentSlot] = useState([]); //will deal with the clots needed for the calendar
-
-  const togglePopup = () => { // hides or shows the pop up window when called 
-    setIsPopupOpen(!isPopupOpen);
-  };
+  const [selectedAppointment, setSelectedAppointment] = useState(null); // to store chosen appointment for editing
+  
 
   // fetch appointments from supabase
   useEffect(() => {
@@ -36,7 +34,7 @@ export default function Appointments() {
           case 'check-up': return '#80cb0f'; // green for check-up
           default: return '#00aee8'; // blue as default - for the rest of the procedures
         }
-      }
+      };
 
       // console.log("fetched appointments data: ", data); //
 
@@ -47,6 +45,11 @@ export default function Appointments() {
         start: appointment.appointment_date,
         end: new Date(new Date(appointment.appointment_date).getTime() + appointment.procedure.duration_minutes * 60000),
         backgroundColor: getColourByProcedureType(appointment.procedure.procedure_name),
+        extendedProps: {
+          patient: appointment.patient,
+          dentist: appointment.dentist,
+          procedure: appointment.procedure
+        }
       }));
 
       setAppointmentSlot(formatedAppointments);
@@ -54,18 +57,41 @@ export default function Appointments() {
       console.error("Error fetching appointments: ", error.message);
     }
   };
+  
   fetchAppointments();
 }, []);
 
   // deal with clicking and canceling event from calendar dicplay
   const handleEventClick = async (clickInfo) => {
-    const confirmCancel = window.confirm(
-      `Do you want to cancel this appointment "${clickInfo.event.title}"?`
+
+    const appointmentId = clickInfo.event.extendedProps.appointment_id;
+
+    // Modify appointments on calendar
+    const action = window.confirm(
+      `Do you want to modify this appointment?"${clickInfo.event.title}"?`
     );
+
+    if (action) {
+      setSelectedAppointment({
+        appointment_id: appointmentId,
+        patient: clickInfo.event.extendedProps.patient,
+        dentist: clickInfo.event.extendedProps.dentist,
+        procedure: clickInfo.event.extendedProps.procedure,
+        appointment_date: clickInfo.event.start.toISOString().split('T')[0],
+        appointment_time: clickInfo.event.start.toTimeString().split(' ')[0].substring(0, 5)
+      });
+    } else {
+      handleCancelAppointment(appointmentId);
+    }
+
+  };
+
+  // cancel appointment
+  const handleCancelAppointment = async (appointmentId) => {
+    const confirmCancel = window.confirm("Are you sure you want to cancel this appointment?");
 
     if (confirmCancel) {
       try {
-        const appointmentId = clickInfo.event.extendedProps.appointment_id;
 
         const { error } = await supabase
           .from("appointments")
@@ -75,39 +101,70 @@ export default function Appointments() {
         if (error) throw error;
 
         // remove event from calendar
-        setAppointmentSlot((prevAppointments) => 
-          prevAppointments.filter((event) => event.appointment_id !== appointmentId)
-        );
-
+        setAppointmentSlot((prevAppointments) => prevAppointments.filter((event) => event.appointment_id !== appointmentId));
         alert("Appointment cancelled successfully.");
       } catch (error) {
         console.error("Error canceling appointment", error.message);
       }
     }
-  };
+  }
 
-  return (   // renders page name and create appointment button 
-    <div className='appointments'>
-      <h1>Appointments page</h1>  
-      <button className='appointments-actions' onClick={() => navigate("/create-appointment")}> 
-        Create appointment 
-      </button>
+  return (   
+    <div className='appointments-page'>
+      {/* <Sidebar/> */}
+
+      <div className='appointments-container'>
+      <div className='appointments-header'>
+        <h1>Appointments page</h1>  
+        <button className='appointments-actions' onClick={() => navigate("/create-appointment")}> 
+          Create appointment 
+        </button>
+      </div>
+      
 
       {/* Calendar component */}
-      <FullCalendar
-        plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-        initialView="timeGridWeek"
-        headerToolbar = {{
-          left: "prev, next today",
-          center: "title",
-          right: "dayGridMonth, timeGridWeek, timeGridDay",
-        }}
-        events={appointmentSlot}
-        eventClick={handleEventClick}
-      />
+      <div className='calendar-container'>
+        <FullCalendar
+          plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+          initialView="timeGridWeek"
+          headerToolbar = {{
+            left: "prev, next today",
+            center: "title",
+            right: "dayGridMonth, timeGridWeek, timeGridDay",
+          }}
+          slotMinTime="08:00:00" // start calendar dispaly at 8am
+          slotMaxTime="21:00:00" // end calendar dispaly time at 9pm
+          height="100%"
+          contentHeight="auto"
+          events={appointmentSlot}
+          eventClick={handleEventClick}
+        />
+      </div>
+      </div>
+
+      {/* modify appointment */}
+      {selectedAppointment && (
+        <ModifyAppointment
+          appointment={selectedAppointment}
+          onClose={() => setSelectedAppointment(null)}
+          onSave={(updatedData) => {
+            setAppointmentSlot((previewAppointments) => 
+              previewAppointments.map((event) => 
+                event.appointment_id === updatedData.appointment_id ? updatedData : event
+              )
+            );
+            setSelectedAppointment(null);
+          }}
+        
+        />
+      )}
 
     </div>
-  ); // if isPopUpOpen is true the pop up window is rendered and onClose the popup window can be closed 
+  ); 
 }
 
-
+// // modify appointment 
+// function ModifyAppointment({appointment, onClose, onSave}) {
+//   const [newDate, setNewDate] = useState(appointment.appointment_date);
+//   const [newTime, setNewTime] = useState(appointment.appointment_date);
+// }
