@@ -1,14 +1,22 @@
 import React from 'react';
 import { useUser, SignIn } from '@clerk/clerk-react';
+import { Navigate, useLocation} from 'react-router-dom';
 import ProtectedLayout from './ProtectedLayout';
 
-const AuthGuard = ({ children }) => {
-  const { isSignedIn, isLoaded } = useUser();
+// AuthGuard component -> acts as a wrapper to protect routes based on authentication and role-based access
+// children -> the protected components that should only be accessible to authorised users
+// allowedRoles -> an array of roles that are allowed to access the route, by default the doctor who can access anything
+// returns component based on authentication and authorisation status
 
-  // Wait until Clerk has fully loaded
+const AuthGuard = ({ children, allowedRoles = ["doctor"] }) => {
+  // Retrieve authentication statur and user info from clerk
+  const { isSignedIn, isLoaded, user} = useUser();
+  const location = useLocation();
+
+  // Wait until Clerk has fully loaded before rendering anything to user
   if (!isLoaded) return <div>Loading...</div>;
 
-  // If not signed in, render the SignIn component
+  // If not signed in, render the SignIn component to user
   if (!isSignedIn) {
     return (
       <div>
@@ -16,6 +24,13 @@ const AuthGuard = ({ children }) => {
         <SignIn />
       </div>
     );
+  }
+
+  const userRole = user?.publicMetadata?.role; // Extract the user's role from Clerk's public metadata
+
+  // At the moment, if the user's role is not in the allowedList rediret them back to their profile page
+  if (!allowedRoles.includes(userRole)) {
+    return <Navigate to={`/patient-profile/${user.id}`} state={{from: location}} /> 
   }
 
   // If signed in, render the content with ProtectedLayout

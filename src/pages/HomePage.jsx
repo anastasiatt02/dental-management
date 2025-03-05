@@ -20,10 +20,10 @@ export default function HomePage() {
       {isSignedIn && (
         <div className='nav-bar'>
           <ul className='nav-links'>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/dashboard'>Dashboard</Link></li>
-            <li><Link to='/patients'>Patients</Link></li>
-            <li><Link to='/appointments'>Appointments</Link></li>
+            <li><Link to='/'>{t("nav.home")}</Link></li>
+            <li><Link to='/dashboard'>{t("nav.dashboard")}</Link></li>
+            <li><Link to='/patients'>{t("nav.patients")}</Link></li>
+            <li><Link to='/appointments'>{t("nav.appointments")}</Link></li>
             
           </ul>
         </div>
@@ -34,27 +34,16 @@ export default function HomePage() {
         <section className='welcome-section'>
           <h1>{t('homepage.welcome-title')} </h1>
           {/* <h1>{t('homepage.exampleDynamic',{v:"", name:"Anastasia"})} </h1> */}
-          <p>
-            At Saqellari Dental Clinic, we believe in creating healthy, 
-            beautiful smiles that last a lifetime. Whether you are here for a routing check-up, cosmetic dentistry, 
-            or specialised care, our experienced team is dedicated to providing exceptional
-            dental services in a warm and friendly environment. Your comfort and oral health are our top priorities.
-            Let us help you achieve the smile of your dreams!
-          </p>
-          {/* <p>{t('homepage.welcome-text')}</p> */}
-          <p>Schedule your appointment today and experience the difference at Saqellari Dental Clinic!</p>
+          <p>{t("homepage.welcome-description")}</p>
+          <p>{t("homepage.welcome-schedule")}</p>
         </section>
 
         <section className='story-section'>
           <h2>{t('homepage.story-title')}</h2>
           <p>
-          Founded in 2013, Saqellari Dental Clinic has been serving the community with a commitment to excellence in dental care. 
-          What began as a small practice has grown into a trusted clinic known for personalized care and state-of-the-art technology.
-          
-          Over the years, we have built lasting relationships with our patients, offering a full spectrum of dental services that cater to all ages.
-          Our team takes pride in staying at the forefront of dentistry, combining innovative techniques with compassionate care to deliver an exceptional patient experience.
-
-          As we look to the future, we remain dedicated to our mission: to make every visit comfortable, stress-free, and focused on achieving optimal oral health for all our patients.
+          {t("homepage.start-year")}
+          {t("homepage.over-years")}
+          {t("homepage.future")}
           </p>
         </section>
 

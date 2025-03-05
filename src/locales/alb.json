@@ -7,8 +7,13 @@
 
     "homepage": {
         "welcome-title": "Mirësevini në Klinikën Dentare Saqellari",
+        "welcome-description": "Në Klinikën Dentare Saqellari, ne besojmë në krijimin e buzëqeshjeve të shëndetshme dhe të bukura që zgjasin një jetë. Pavarësisht nëse jeni këtu për një kontroll rutinë, stomatologji estetike ose kujdes të specializuar, ekipi ynë me përvojë është i përkushtuar për të ofruar shërbime dentare të jashtëzakonshme në një mjedis të ngrohtë dhe miqësor. Rehatia dhe shëndeti juaj oral janë përparësitë tona kryesore. Na lejoni t'ju ndihmojmë të arrini buzëqeshjen e ëndrrave tuaja!",
+        "welcome-schedule": "Rezervoni takimin tuaj sot dhe përjetoni ndryshimin në Klinikën Dentare Saqellari!",
 
         "story-title": "Historia jonë",
+        "start-year": "E themeluar në vitin 2013, Klinika Dentare Saqellari ka shërbyer komunitetit me një angazhim për përsosmërinë në kujdesin dentar. Ajo që filloi si një praktikë e vogël është rritur në një klinikë të besuar, e njohur për kujdesin e saj të personalizuar dhe teknologjinë më të avancuar. ",
+        "over-years": "Gjatë viteve, kemi ndërtuar marrëdhënie të qëndrueshme me pacientët tanë, duke ofruar një gamë të plotë shërbimesh dentare që u përshtaten të gjitha moshave. Ekipi ynë krenohet që qëndron në ballë të stomatologjisë, duke kombinuar teknika inovative me kujdes të dhembshur për të ofruar një përvojë të jashtëzakonshme për pacientët tanë. ",
+        "future": "Ndërsa shohim drejt së ardhmes, mbetemi të përkushtuar ndaj misionit tonë: ta bëjmë çdo vizitë të rehatshme, pa stres dhe të përqendruar në arritjen e shëndetit optimal oral për të gjithë pacientët tanë. ",
 
         "services-title": "Shërbimet tona",
         "crown": "Kurorë dentare",
@@ -40,11 +45,20 @@
         "clinic-name": "Klinika Dentare Saqellari"
     },
 
-    "protected": {
+    "footer": {
+        "footer-text": "Klinika Dentare Saqellari. Të gjitha të drejtat e rezervuara."
+    },
+
+    "nav": {
         "home": "Faqja kryesore",
-        "dashboard": "Dashboard",
+        "dashboard": "Paneli",
         "patients": "Pacientët",
         "appointments": "Kalendari i takimeve"
+    },
+
+    "button": {
+        "submit": "Ruaj",
+        "sign-in": "Hyr" 
     }
 
 
