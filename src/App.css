@@ -71,7 +71,7 @@ body {
     display: flex; 
     justify-content: space-between;
     align-items: center;
-    text-align: center; 
+    text-align: center;
     width: 100%;
     padding: 20px 20px;
     box-sizing: border-box;
@@ -436,4 +436,38 @@ ul li {
 
 .cancel-button:hover {
     background-color: var(--red);
+}
+
+/* appointments + calendar */
+
+.appointments-container {
+    flex-grow: 1;
+    padding: 20px;
+    /* margin-left: 220px; */
+    /* width: calc(100% - 220px); */
+    height: calc(100% - px);
+    overflow-y: auto;
+}
+
+.calendar-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px var(--blue);
+    /* height: 100%; */
+}
+
+.appointments-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.appointments-page {
+    display: flex;
+    height: 100vh;
+    /* flex-direction: row; */
+    /* margin-top: 20px; */
+    /* margin-left: 40px; */
 }

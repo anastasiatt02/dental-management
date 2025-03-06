@@ -58,7 +58,8 @@
 
     "button": {
         "submit": "Ruaj",
-        "sign-in": "Hyr" 
+        "sign-up": "Regjistrohu",
+        "sign-in": "Hyr"
     }
 
 

@@ -4,10 +4,11 @@ import HomePage from "./pages/HomePage";
 import AuthGuard from "./components/AuthGuard";
 import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
-import CreatePatient from "./components/CreatePatient";
+import CreatePatient from "./pages/CreatePatient";
 import Appointments from "./pages/Appointments";
-// import './App.css'
 import CreateAppointment from "./pages/CreateAppointment";
+import PatientProfile from "./pages/PatientProfile";
+
 
 function App() {
   return (
@@ -16,11 +17,11 @@ function App() {
         {/* Public Pages */}
         <Route path="/" element={<HomePage />} />
 
-        {/* Protected Pages */}
+        {/* Protected Pages - doctor only*/}
         <Route
           path="/dashboard"
           element={
-            <AuthGuard>
+            <AuthGuard allowedRoles={["doctor"]}> 
               <Dashboard />
             </AuthGuard>
           }
@@ -28,7 +29,7 @@ function App() {
         <Route
           path="/patients"
           element={
-            <AuthGuard>
+            <AuthGuard allowedRoles={["doctor"]}>
               <Patients />
             </AuthGuard>
           }
@@ -36,7 +37,7 @@ function App() {
         <Route
           path="/create-patient"
           element={
-            <AuthGuard>
+            <AuthGuard allowedRoles={["doctor"]}>
               <CreatePatient />
             </AuthGuard>
           }
@@ -44,7 +45,7 @@ function App() {
         <Route
           path="/appointments"
           element={
-            <AuthGuard>
+            <AuthGuard allowedRoles={["doctor"]}>
               <Appointments />
             </AuthGuard>
           }
@@ -52,8 +53,16 @@ function App() {
         <Route
           path="/create-appointment"
           element={
-            <AuthGuard>
+            <AuthGuard allowedRoles={["doctor"]}>
               <CreateAppointment />
+            </AuthGuard>
+          }
+        />
+        <Route
+          path="/patient-profile/:id"
+          element={
+            <AuthGuard allowedRoles={["doctor", "patient"]}>
+              <PatientProfile />
             </AuthGuard>
           }
         />

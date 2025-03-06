@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
-import patientSchema from "./patientSchema"; // Schema for validation
+import patientSchema from "../components/patientSchema"; // Schema for validation
 import supabase from "../supabaseClient"; // Supabase database client
 import emailjs from "@emailjs/browser"; // Email sending service
 import { useTranslation } from "react-i18next"; 

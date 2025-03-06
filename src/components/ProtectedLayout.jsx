@@ -15,7 +15,6 @@ import { useTranslation } from 'react-i18next';
  * - supports content transaltion
  * 
  * 
- * @param {*} param0  
  */
 
 const ProtectedLayout = ({ children }) => {
