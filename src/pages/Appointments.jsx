@@ -119,9 +119,8 @@ export default function Appointments() {
 
   return (   
     <div className='appointments-page'>
-      {/* <Sidebar/> */}
 
-      <div className='appointments-container'>
+      <div className={`appointments-container ${selectedAppointment ? "modify-appointment-active" : ""}`}>
       <div className='appointments-header'>
         <h1>Appointments page</h1>  
         <button className='appointments-actions' onClick={() => navigate("/create-appointment")}> 
@@ -172,8 +171,65 @@ export default function Appointments() {
   ); 
 }
 
-// // modify appointment 
-// function ModifyAppointment({appointment, onClose, onSave}) {
-//   const [newDate, setNewDate] = useState(appointment.appointment_date);
-//   const [newTime, setNewTime] = useState(appointment.appointment_date);
-// }
+// modify appointment 
+function ModifyAppointment({appointment, onClose, onSave}) {
+  const [newDate, setNewDate] = useState(appointment.appointment_date);
+  const [newTime, setNewTime] = useState(appointment.appointment_time);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  const save = async () => {
+    setIsUpdating(true);
+
+    try {
+      //combine the new date and time in one single timestamp
+      const updateDateTime = new Date(`${newDate}T${newTime}:00`);
+
+      const {error} = await supabase
+        .from("appointments")
+        .update({appointment_date: updateDateTime.toISOString()})
+        .eq("appointment_id", appointment.appointment_id);
+      
+      if (error) throw error;
+
+      // prepare updated appointment to be added to calendar
+      const updateAppointment = {
+        ...appointment,
+        start: updateDateTime.toISOString(),
+        end: new Date(updateDateTime.getTime() + appointment.procedure.duration_minutes * 60000),
+        appointment_date: newDate,
+        appointment_time: newTime
+      };
+
+      onSave(updateAppointment);
+      alert("Appointment updated successfully.");
+    } catch (error) {
+      console.error("Error updating appointment: ", error.message);
+      alert("Failed to update appointment. Please try again.");
+    } finally {
+      setIsUpdating(false);
+      onClose();
+    }
+  };
+
+  return (
+    <div className='modify-appointment'>
+      <h2>Modify appointment</h2>
+      <label>New date: 
+        <input type='date' value={newDate} onChange={(e) => setNewDate(e.target.value)} />
+      </label>
+
+      <label> 
+        New time: 
+        <input type="time" value={newTime} onChange={(e) => setNewTime(e.target.value)} />
+      </label>
+
+      <button onClick={save} disabled={isUpdating}>
+        {isUpdating ? "Updating..." : "Save changes"}
+      </button>
+      <button onClick={onClose}>Cancel</button>
+    </div>
+  )
+
+
+  
+}
