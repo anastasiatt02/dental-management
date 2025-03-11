@@ -1,6 +1,6 @@
 import React from 'react'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react'
-// import '../styles/header.css';
+import '../styles/header.css';
 import { useTranslation } from 'react-i18next';
 
 /**

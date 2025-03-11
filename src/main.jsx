@@ -5,10 +5,11 @@ import App from './App.jsx'
 import { ClerkProvider } from '@clerk/clerk-react'
 import "./i18n";
 
-// import './styles/footer.css';
-// import './styles/header.css';
-// import './styles/homepage.css';
-// import './styles/forms.css';
+import './styles/footer.css';
+import './styles/header.css';
+import './styles/homepage.css';
+import './styles/forms.css';
+import './styles/appointments.css';
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY

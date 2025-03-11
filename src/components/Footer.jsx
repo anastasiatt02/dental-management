@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// import '../styles/footer.css';
+import '../styles/footer.css';
 
 /**
  * Footer component
