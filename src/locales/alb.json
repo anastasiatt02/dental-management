@@ -59,8 +59,38 @@
     "button": {
         "submit": "Ruaj",
         "sign-up": "Regjistrohu",
-        "sign-in": "Hyr"
+        "sign-in": "Hyr",
+        "new-patient": "Pacient i ri",
+        "new-appointment": "Rezervo takim",
+        "cancel": "Anullo",
+        "save-appt": "Ruaj takimin"
+    },
+
+    "patients": {
+        "search": "Kërko pacientin",
+        "title": "Pacientët",
+        "no-patient": "Pacienti i kërkuar nuk u gjet.",
+        "loading": "Duke ngarkuar pacientët.."
+    },
+
+    "appointments": {
+        "title": "Takimet"
+    },
+
+    "create-appt": {
+        "title": "Krijo një takim të ri",
+        "type-patient": "Shëno emirin e pacientit",
+        "dentist": "Zgjidh dentisin",
+        "type-dentist": "Shëno emrin e dentistit",
+        "procedure": "Kërko procedurën",
+        "type-procedure": "Shëno procedurën",
+        "date": "Zgjidh datën për takimin",
+        "time": "Zgjidh orën për takimin",
+        "details": "Shto ndonjë detaj të rëndësishëm për takimin",
+        "type": "Shkruaj këtu..."
+
     }
+    
 
 
 }

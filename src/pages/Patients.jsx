@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import supabase from '../supabaseClient'
 import { useNavigate } from 'react-router-dom';
-// import { useForm } from "react-hook-form";
+import { useTranslation } from 'react-i18next';
 
 
 export default function Patients() {
@@ -10,6 +10,7 @@ export default function Patients() {
   const navigate = useNavigate();
   const [searchQuery,setSearchQuery] = useState(''); //  search bar state
   const [loading, setLoading] = useState(false);
+  const {t} = useTranslation();
 
   const handleCreatePatient = () => {
     navigate("/create-patient");
@@ -76,24 +77,24 @@ export default function Patients() {
 
   return (
     <div className='patients'>
-      <h1>Patients' Page</h1>
+      <h1>{t("patients.title")}</h1>
       <div className='patients-actions'>
 
         {/* search bar */}
         <input type="text"
         className='search-bar'
-        placeholder='Search for a patient..'
+        placeholder={t("patients.search")}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)} />
 
         {/* create patient button */}
-      <button className='action-button-p' onClick={handleCreatePatient}>Create patient</button>
+      <button className='action-button-p' onClick={handleCreatePatient}>{t("button.new-patient")}</button>
 
       </div>
 
       {/* diplay patients or loading */}
       {loading ? (
-        <p>Loading patients..</p>
+        <p>{t("patients.loading")}</p>
       ) : patients.length > 0 ? (
         <ul className='patients-list'>
           {patients.map((patient) =>(
@@ -105,7 +106,7 @@ export default function Patients() {
           ))}
         </ul>
       ) : (
-        <p>No patients found.</p>
+        <p>{t("patients.no-patient")}</p>
       )}
       
     </div>

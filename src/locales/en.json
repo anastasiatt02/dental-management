@@ -64,7 +64,36 @@
     "button": {
         "submit": "Submit",
         "sign-up": "Sign up",
-        "sign-in": "Sign-in"
+        "sign-in": "Sign-in",
+        "new-patient": "Create patient",
+        "new-appointment": "Create appointment",
+        "cancel": "Cancel",
+        "save-appt": "Save appointment"
+    },
+
+    "patients": {
+        "search": "Search for a patient",
+        "title": "Patients' Page",
+        "no-patient": "No patients found.",
+        "loading": "Loading patients.."
+    },
+
+    "appointments": {
+        "title": "Appointments page"
+    },
+
+    "create-appt": {
+        "title": "Create appointment",
+        "type-patient": "Enter patient name",
+        "dentist": "Search for a dentist",
+        "type-dentist": "Enter dentist name",
+        "procedure": "Search procedure",
+        "type-procedure": "Search for a procedure",
+        "date": "Select appointment date",
+        "time": "Select appointment time",
+        "details": "Enter any details regarding the appointment",
+        "type": "Type here..."
+
     }
 
 

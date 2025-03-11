@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 // import '../styles/forms.css';
+import { useTranslation } from 'react-i18next';
 
 export default function CreateAppointment() {
 
     const navigate = useNavigate();
     const [searchParams] = useSearchParams(); // exact parameters from url
+    const {t} = useTranslation();
 
     // prefilled date and time from calendar click
     const prefilledDate = searchParams.get("date");
@@ -197,13 +199,13 @@ export default function CreateAppointment() {
     return (
         <div className='create-appointment'>
           
-            <h2>Create appointment</h2>
+            <h2>{t("create-appt.title")}</h2>
             <form onSubmit={handleSubmit}>
 
             {/* Patient search */}
             <label> 
-                Search patient:
-                <input type="text" value={searchQuery} onChange= {(e) => setSearchQuery(e.target.value)} placeholder='Enter patient name' />
+                {t("patients.search")}:
+                <input type="text" value={searchQuery} onChange= {(e) => setSearchQuery(e.target.value)} placeholder={t("create-appt.type-patient")} />
             </label>
             <ul>
                 {patientResults.map((patient) => (
@@ -214,8 +216,8 @@ export default function CreateAppointment() {
 
             {/* dentist search */}
             <label>
-                Search for a dentist:
-                <input type="text" value={dentistQuery} onChange= {(e) => setDentistQuery(e.target.value)} placeholder='Enter dentist name' />
+            {t("create-appt.dentist")}:
+                <input type="text" value={dentistQuery} onChange= {(e) => setDentistQuery(e.target.value)} placeholder={t("create-appt.type-dentist")} />
             </label>
             <ul>
                 {dentistResults.map((dentist) => (
@@ -226,8 +228,8 @@ export default function CreateAppointment() {
 
             {/* procedure search */}
             <label>
-                Search procedure:
-                <input type="text" value={procedureQuery} onChange= {(e) => setProcedureQuery(e.target.value)} placeholder='Enter procedure name' />
+                {t("create-appt.procedure")}:
+                <input type="text" value={procedureQuery} onChange= {(e) => setProcedureQuery(e.target.value)} placeholder={t("create-appt.type-procedure")} />
             </label>
             <ul>
                 {procedureResults.map((procedure) => (
@@ -238,24 +240,24 @@ export default function CreateAppointment() {
 
             {/* Date and time */}
             <label>
-                Select appointment date:
+                {t("create-appt.date")}:
                 <input type="date" value={appointmentDate} onChange= {(e) => setAppointmentDate(e.target.value)} />
             </label>
             <label>
-                Select appointment time:
+                {t("create-appt.time")}:
                 <input type="time" value={appointmentTime} onChange= {(e) => setAppointmentTime(e.target.value)} />
             </label>
 
             {/* Appointment details */}
             <label>
-                Enter any details regarding the appointment: 
-                <textarea value={appointmentDetails} onChange= {(e) => setAppointmentDetails(e.target.value)} placeholder='Enter any notes..'/>
+                {t("create-appt.details")}: 
+                <textarea value={appointmentDetails} onChange= {(e) => setAppointmentDetails(e.target.value)} placeholder={t("create-appt.type")}/>
             </label>
             
-            <button type='submit'>Save appointment</button>
+            <button type='submit'>{t("button.save-appt")}</button>
 
             </form>
-            <button className='cancel-button' onClick={() => navigate("/appointments")}>Cancel</button>
+            <button className='cancel-button' onClick={() => navigate("/appointments")}>{t("button.cancel")}</button>
         
         </div>
       

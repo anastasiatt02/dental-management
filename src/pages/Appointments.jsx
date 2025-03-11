@@ -7,6 +7,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from'@fullcalendar/interaction';
 import { useNavigate } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import { useTranslation } from 'react-i18next';
 
 
 export default function Appointments() {
@@ -14,7 +15,7 @@ export default function Appointments() {
   const navigate = useNavigate()
   const [appointmentSlot, setAppointmentSlot] = useState([]); //will deal with the clots needed for the calendar
   const [selectedAppointment, setSelectedAppointment] = useState(null); // to store chosen appointment for editing
-  
+  const {t} = useTranslation();
 
   // fetch appointments from supabase
   useEffect(() => {
@@ -122,9 +123,9 @@ export default function Appointments() {
 
       <div className={`appointments-container ${selectedAppointment ? "modify-appointment-active" : ""}`}>
       <div className='appointments-header'>
-        <h1>Appointments page</h1>  
+        <h1>{t("appointments.title")}</h1>  
         <button className='appointments-actions' onClick={() => navigate("/create-appointment")}> 
-          Create appointment 
+          {t("button.new-appointment")}
         </button>
       </div>
       
