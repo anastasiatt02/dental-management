@@ -8,6 +8,7 @@ import CreatePatient from "./pages/CreatePatient";
 import Appointments from "./pages/Appointments";
 import CreateAppointment from "./pages/CreateAppointment";
 import PatientProfile from "./pages/PatientProfile";
+import AppointmentHistory from "./pages/AppointmentHistory";
 
 
 function App() {
@@ -61,8 +62,16 @@ function App() {
         <Route
           path="/patient-profile/:id"
           element={
-            <AuthGuard allowedRoles={["doctor", "patient"]}>
+            <AuthGuard allowedRoles={["doctor"]}>
               <PatientProfile />
+            </AuthGuard>
+          }
+        />
+        <Route
+          path="/appointment-history/:appointmentId"
+          element={
+            <AuthGuard allowedRoles={["doctor"]}>
+              <AppointmentHistory />
             </AuthGuard>
           }
         />

@@ -7,8 +7,7 @@ import "./i18n";
 
 import './styles/footer.css';
 import './styles/header.css';
-import './styles/homepage.css';
-import './styles/forms.css';
+
 import './styles/appointments.css';
 
 
