@@ -3,8 +3,9 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import  { useUser } from '@clerk/clerk-react'; // for authentication
 import { Link } from 'react-router-dom'; //for navigation
-// import '../styles/homepage.css';
+import '../styles/homepage.css';
 import { useTranslation } from 'react-i18next';
+import Navbar from '../components/NavBar';
 
 export default function HomePage() {
   
@@ -17,23 +18,12 @@ export default function HomePage() {
       <Header />
 
       {/* need to show navigation button only when user is signed in */}
-      {isSignedIn && (
-        <div className='nav-bar'>
-          <ul className='nav-links'>
-            <li><Link to='/'>{t("nav.home")}</Link></li>
-            <li><Link to='/dashboard'>{t("nav.dashboard")}</Link></li>
-            <li><Link to='/patients'>{t("nav.patients")}</Link></li>
-            <li><Link to='/appointments'>{t("nav.appointments")}</Link></li>
-            
-          </ul>
-        </div>
-      )}
+      <Navbar /> 
 
       <main className='main-content'>
 
         <section className='welcome-section'>
           <h1>{t('homepage.welcome-title')} </h1>
-          {/* <h1>{t('homepage.exampleDynamic',{v:"", name:"Anastasia"})} </h1> */}
           <p>{t("homepage.welcome-description")}</p>
           <p>{t("homepage.welcome-schedule")}</p>
         </section>
@@ -52,7 +42,7 @@ export default function HomePage() {
           <section className='services-section'>
             <h2>{t('homepage.services-title')}</h2>
             <p>
-              <ul>
+              <ul className='services-list'>
                 <li>{t('homepage.crown')}</li>
                 <li>{t('homepage.filling')}</li>
                 <li>{t('homepage.root-canal')}</li>

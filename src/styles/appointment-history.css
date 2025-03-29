@@ -1,0 +1,89 @@
+:root {
+    --red: #FF0000;
+    --blue: #00BFFF;
+    --green: #ADFF2F;
+    --grey-light: #f4f4f4;
+}
+
+.appointment-history {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--grey-light);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-history h1,
+.appointment-history h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--blue);
+}
+
+.appointment-details p {
+    margin-bottom: 0.5rem;
+}
+
+.status-update {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-update select {
+    margin-left: 0.5rem;
+    padding: 0.4rem;
+    border-radius: 8px;
+    border: 1px solid var(--blue);
+}
+
+textarea, input[type="text"]  {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    /* border: 1px solid var(--blue); */
+    font-size: 0.95rem;
+}
+
+.appt-history-button {
+    background-color: var(--blue);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+
+.history-item {
+    background-color: #cceffb;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.history-item p {
+    margin-bottom: 0.3rem;
+}
+
+.history-item a {
+    color: #0077cc;
+}
+
+.section-header {
+    color: #333;
+    border-bottom: 2px solid var(--blue);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    margin-top: 40px;
+    padding-top: 20px;
+}
+

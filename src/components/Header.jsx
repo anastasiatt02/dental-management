@@ -27,12 +27,6 @@ export default function Header() {
           {/* Retrieves transalted clinic name from localisation files */}
         </div>
 
-        {/* Language switcher */}
-        <div>
-          <button onClick={() => i18n.changeLanguage('en')}>English</button>
-          <button onClick={() => i18n.changeLanguage('alb')}>Shqip</button>
-        </div>
-
         {/* Authentication section */}
         <nav className='navbar'>
           <SignedOut>

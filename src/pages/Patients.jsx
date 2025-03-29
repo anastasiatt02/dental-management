@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import supabase from '../supabaseClient'
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import '../styles//patients.css';
 
 
 export default function Patients() {
