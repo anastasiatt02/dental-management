@@ -52,7 +52,7 @@ export default function AppointmentHistory() {
         status, 
         history, 
         patient:users!appointments_patient_id_fkey(full_name),
-        procedure:procedure(procedure_name, procedure_name_alb)
+        procedure:procedure(procedure_name)
       `)
       .eq("appointment_id", appointmentId)
       .single();
@@ -73,8 +73,7 @@ export default function AppointmentHistory() {
   const translateProcedure = () => {
     if (!appointment?.procedure) return "";
 
-    return i18n.language === "alb"
-    ? appointment.procedure.procedure_name_alb : appointment.procedure.procedure_name;
+    return t(`procedures.${appointment.procedure.procedure_name}`) // simpler and cleaner translation
   };
 
   // change appointment status
