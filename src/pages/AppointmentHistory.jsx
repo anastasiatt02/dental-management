@@ -51,7 +51,7 @@ export default function AppointmentHistory() {
         appointment_details, 
         status, 
         history, 
-        patient:users!appointments_patient_id_fkey(full_name),
+        patient:users!appointments_patient_id_fkey(id, full_name),
         procedure:procedure(procedure_name)
       `)
       .eq("appointment_id", appointmentId)
@@ -157,7 +157,12 @@ export default function AppointmentHistory() {
         // display appointment detals
         <div className="appointment-details">
           <h2>{t("appointment-history.appointment-details")}</h2>
-          <p>{t("appointment-history.appointment-patient")}{appointment.patient.full_name}</p>
+          <p>{t("appointment-history.appointment-patient")}
+            <span onClick={() => navigate(`/patient-profile/${appointment.patient.id}`)}
+              style={{cursor: 'pointer'}}>
+              {appointment.patient.full_name} 
+            </span>
+          </p>
           <p>{t("appointment-history.appointment-procedure")}{translateProcedure()}</p>
           <p>{t("appointment-history.appointment-date")} {new Date(appointment.appointment_date).toLocaleDateString()}</p>
           <p>{t("appointment-history.appointment-pre-booking")} {appointment.appointment_details || t("appointment-history.no-details")}</p>
