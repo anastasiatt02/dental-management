@@ -1,9 +1,6 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useUser } from "@clerk/clerk-react";
-import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next';
 import Navbar from "./NavBar";
 
 /**
@@ -12,19 +9,14 @@ import Navbar from "./NavBar";
  * The layout makes sure:
  * - a consistent structure across protected pages
  * - a header and footer for all pages
- * - a navigation menu only for signed-in users
+ * - a navigation menu visible only for signed-in users
  * - supports content transaltion
- * 
  * 
  */
 
 const ProtectedLayout = ({ children }) => {
-  const { isSignedIn } = useUser(); // Check the user is authenticated
-  const {t} = useTranslation(); // Translation function
-
-
   return (
-    <div>
+    <div className="layout-wrapper">
       {/* Header section */}
       <Header /> 
 
@@ -32,7 +24,7 @@ const ProtectedLayout = ({ children }) => {
       <Navbar /> 
 
       {/* Main Content */}
-      <main>{children}</main>
+      <main className="layout-main">{children}</main>
       
       {/* Footer section */}
       <Footer/>
