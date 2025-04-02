@@ -6,6 +6,8 @@
     
 }
 
+/* Main container */
+
 .patients{
     max-width: 800px;
     margin: 40px auto;
@@ -22,6 +24,7 @@
     margin-bottom: 60px;
 }
 
+/* Actions section - search, button */
 .patients-actions {
     display: flex;
     gap: 20px;
@@ -42,6 +45,19 @@
     max-width: 400px;
 }
 
+.action-button-p {
+    padding: 10px 16px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 42px;
+}
+
+/* Patient list style */
 .patients-list {
     margin: 0 auto;
     list-style: none;
@@ -64,17 +80,6 @@
     cursor: pointer;
 }
 
-.action-button-p {
-    padding: 10px 16px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: var(--blue);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    height: 42px;
-}
 
 
 
