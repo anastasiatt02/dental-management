@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     text-align: left;
+    margin-bottom: 24px;
 }
 
 .create-appointment input, 
@@ -42,19 +43,19 @@
     outline: none;
     transition: 1px solid var(--green);
     margin-top: 8px;
+    width: 100%;
 }
 
 .create-appointment textarea {
     resize: none;
     height: 80px;
-    width: 500px;
 }
 
 /* Lists */
 .create-appointment ul {
     list-style: none;
     padding: 0;
-    margin-top: 12px;
+    margin-top: 0;
 }
 
 .create-appointment ul li {

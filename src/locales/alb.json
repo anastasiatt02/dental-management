@@ -1,8 +1,19 @@
 {
     "common": {
-        "labels":{
-            "name": "emri"
-        }
+        "save": "Ruaj",
+        "cancel": "Anullo",
+        "close": "Mbyll",
+
+        "gender": "Gjinia: ",
+        "male": "Mashkull",
+        "female": "Femër",
+
+        "full-name": "Emri i plotë:  ",
+        "dob": "Ditëlindja:  ",
+        "email": "Adresa e email-it: ",
+        "phone-no": "Numri i telefonit: ",
+        "emergency_name": "Emri i kontaktit të emergjencës: ",
+        "emergency_contact": "Numri i kontaktit në rast emergjence: "
     },
 
     "homepage": {
@@ -73,8 +84,78 @@
         "loading": "Duke ngarkuar pacientët.."
     },
 
+    "create-patient": {
+        "submited-form": "Formulari i pacientit u ruajt me sukses!",
+        "error-new-patient": "Një problem ndodhi gjatë krijimit të një pacienti të ri: ",
+        "fail-create-new-patient": "Krijimi i pacientit dështoi.",
+        "success-emailing": "Email-i u dërgua me sukses!", 
+        "error-emailing": "Një problem ndodhi me dërgimin e email-it: ",
+        "form-title": "Krijo pacient të ri",
+        "emergency-name": "Emri i kontaktit në rast urgjence:",
+        "emergency-contact": "Numri i kontaktit të urgjencës:",
+        "health-history": "Historia shëndetësore",
+        "medical-condition": "A keni ndonjë gjendje mjekësore afatgjatë?",
+        "allergies": "A keni ndonjë alergji?",
+        "medications": "A jeni duke marrë ndonjë mjekim aktualisht?",
+        "fetch-error-patient": "Një problem ndodhi gjatë marrjes së pacientëve:  ",
+        "fetch-error-dentist": "Një problem ndodhi gjatë marrjes së mjekëve:  ",
+        "fetch-error-procedures": "Një problem ndodhi gjatë marrjes së procedurave: ",
+        "required-fields": "Ju lutemi plotësoni të gjitha fushat e kërkuara.",
+        "already-booked-slot": "Ky orar është rezervuar tashmë. Ju lutemi zgjidhni një orar tjetër.",
+        "new-appointment-success": "Takimi u krijua me sukses!",
+        "error-saving-appointment": "Një problem ndodhi gjatë ruajtjes së takimit: ",
+        "new-appointment-fail": "Krijimi i takimit dështoi. Provoni përsëri.",
+        "select-gender": "Zgjidh gjininë",
+        "gender-required": "Gjinia është e detyrueshme"      
+    },
+
+    "fullcalendar": {
+        "previous": "Mbrapa",
+        "next": "Përpara",
+        "today": "Sot",
+        "month": "Muaji",
+        "week": "Java",
+        "day": "Dita",
+        "weekdays": {
+            "0": "E diel",
+            "1": "E hënë",
+            "2": "E martë",
+            "3": "E mërkurë",
+            "4": "E enjtë",
+            "5": "E premte",
+            "6": "E shtunë"     
+        },
+        "all-day": "Gjithë ditën",
+        "months": {
+            "0": "Janar",
+            "1": "Shkurt",
+            "2": "Mars",
+            "3": "Prill",
+            "4": "Maj",
+            "5": "Qershor",
+            "6": "Korrik",
+            "7": "Gusht",
+            "8": "Shtator",
+            "9": "Tetor",
+            "10": "Nëntor",
+            "11": "Dhjetor"
+        }
+
+    },
+
     "appointments": {
-        "title": "Takimet"
+        "title": "Takimet",
+        "fetch-error": "Një problem ndodhi gjatë marrjes së takimeve: ",
+        "success-reschedule": "Takimi u riplanifikua me sukses",
+        "error-reschedule": "Një problem ndodhi me riplanifikimin e takimit: ",
+        "success-modify": "Takimi u përditësua me sukses",
+        "error-modify": "Një problem ndodhi gjatë ripërditësimit të takimit: ",
+        "confirm-cancel": "Jeni të sigurtë që dëshironi ta anuloni këtë takim?",
+        "success-cancel": "Takimi u anulua me sukses!",
+        "error-cancel": "Një problem ndodhi gjatë anulimit të takimit: ",
+        "modify-appt": "Modifiko Takimin",
+        "cancel-appt": "Anullo Takimin",
+        "confirm-reschedule": "Konfirmo riplanifikimin?"
     },
 
     "create-appt": {
@@ -89,8 +170,99 @@
         "details": "Shto ndonjë detaj të rëndësishëm për takimin",
         "type": "Shkruaj këtu..."
 
+    },
+
+    "patient-profile": {
+        "missing": "Informacioni mungon",
+        "confirm-deletion": "Jeni të sigurtë se doni të fshini pacientin nga rekordet? Ky është një veprim që nuk mund të zhbehet.",
+        "delete-success": "Rekordet e pacientit u fshinë nga memoria.",
+        "delete-error": "Një problem në sistem pengon fshirjen e rekordeve të pacientit.",
+        "update-success": "Profili u përditësua me sukses!",
+        "error-update": "Një problem në sistem pengon përditësimin e profilit të pacientit.",
+        "edit-profile": "Modifiko profilin",
+        "profile-title": "Profili i Pacientit/es",
+        "personal-details": "Të dhënat personale",
+        "emergency": "Kë mund të kontaktojmë në rast emergjence: ",
+
+        "appointments-sect": "Takimet",
+        "today": "Takimet e rezervuara për sot",
+        
+        "upcoming": "Takimet në ditët e ardhshme",
+        "upcoming-appt": "Do të performojmë {{procedure}} më {{date}} në {{time}}",
+        "today-appt": "Do të performojmë {{procedure}} në {{time}}",
+
+        "past": "Takimet e shkuara",
+        "past-appt": "Performuam {{procedure}} më {{date}} në {{time}}",
+        "canceled-appt": "Takimi më {{date}} në {{time}} u anulua",
+
+        "health-hist": "Historia shëndetësore",
+        "medical-cond": "Gjendja shëndetësore: ",
+        "allergies": "Alergjitë: ",
+        "medications": "Medikamente: ",
+        "updated": "U përditësua për herë të fundit: ",
+        "no-report": "E paraportuar",
+        "not-available": "Nuk ka histori shëndetësore të ruajtur.",
+        "deleting": "Duke fshirë..",
+        "delete-patient": "Fshij pacientin",
+        "not-specified": "E paspecifikuar",
+
+        "loading": "Duke ngarkuar...",
+        "error": "Diçka nuk shkoi si duhet: ",
+        "patient-not-found": "Pacienti nuk u gjet."
+    },
+
+    "patient-schema": {
+        "full-name": "Emri kërkohet i plotë",
+        "email": "Ju lutëm jepni një email të vlefshëm",
+        "phone-no": "Numri i telefonit duhet të ketë të paktën 10 shifra",
+        "dob": "Datë e pavlefshme",
+        "valid-age": "Pacienti duhet të jetë të paktën 6 muaj"
+    },
+
+    "appointment-history": {
+        "history-title": "Historia e takimeve",
+        "appointment-loading": "Duke ngarkuar detajet e takimit...",
+        "appointment-details": "Detajet e takimit",
+        "appointment-patient": "Pacienti:",
+        "appointment-procedure": "Procedura:",
+        "appointment-date": "Data:",
+        "appointment-pre-booking": "Shënime para rezervimit:",
+        "appointment-status": "Statusi i takimit",
+        "scheduled": "I planifikuar",
+        "completed": "I përfunduar",
+        "new-history-records": "Shto të dhëna në histori",
+        "save-history": "Ruaj historinë",
+        "history-records": "Të dhënat e historisë",
+        "doctor-notes": "Shënime:",
+        "file": "Linku për dokumentin:",
+        "procedure-details": "Detajet mbi procedurën:",
+        "treatment-materials": "Materialet e përdorura gjatë trajtimit:",
+        "recorded": "Regjistruar më:",
+        "appointment-history-not-found": "Nuk u gjetën të dhëna historike për këtë takim.",
+        "appointment-not-found": "Takimi nuk u gjet",
+
+        "status-error": "Një gabim ndodhi gjatë përditësimit të statusit: ",
+        "status-fail": "Përditësimi i statusit dështoi.",
+        "status-update": "Statusi i takimit u përditësua me sukses!",
+        "fill-fields": "Ju lutëm plotësoni të paktën një fushë.",
+        "history-error": "Një gabim ndodhi gjatë shtimit të historikut:",
+        "details-error": "Ruajtja e detajeve të historikut të takimit dështoi.",
+        "history-update": "Detajet e historikut u ruajtën me sukses!",
+        "no-details": "Detajet mungojnë",
+        "no-notes": "Nuk ka shënime"
+    },
+
+    "procedures": {
+        "Teeth Cleaning": "Pastrimi gurëzash",
+        "Tooth Extraction": "Heqje dhëmbi",
+        "Cavity Filling": "Mbushje dhëmbi",
+        "Teeth Whitening": "Zbardhim dhëmbësh",
+        "Check-up": "Kontroll i zakonshëm",
+        "Emergency": "Emergjencë",
+        "Root Canal": "Trajtimi i kanalit të rrënjës",
+        "Denture": "Proteza",
+        "Crown": "Kurorë"
     }
-    
 
 
 }

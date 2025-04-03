@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AuthGuard from "./components/AuthGuard";
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
 import Patients from "./pages/Patients";
 import CreatePatient from "./pages/CreatePatient";
 import Appointments from "./pages/Appointments";
@@ -19,14 +19,14 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         {/* Protected Pages - doctor only*/}
-        <Route
+        {/* <Route
           path="/dashboard"
           element={
             <AuthGuard allowedRoles={["doctor"]}> 
               <Dashboard />
             </AuthGuard>
           }
-        />
+        /> */}
         <Route
           path="/patients"
           element={
