@@ -44,6 +44,7 @@ export default function Appointments() {
             patient:users!appointments_patient_id_fkey(full_name),
             procedure:procedure(procedure_name, duration_minutes)
           `)
+          .neq("status", "canceled"); // exclude canceled appointments
   
         if (error) throw error;
 
@@ -60,8 +61,7 @@ export default function Appointments() {
           start: appointment.appointment_date,
           end: new Date(new Date(appointment.appointment_date).getTime() + appointment.procedure.duration_minutes * 60000),
           backgroundColor: 
-            appointment.status === "completed" ? "#689d19" :  // Gray for completed appointments
-            appointment.status === "canceled" ? "#ff4d4d" : "#00aee8",
+            appointment.status === "completed" ? "#689d19" :  "#00aee8",// Green for completed appointments, default - blue
           extendedProps: {
             patient: appointment.patient,
             procedure: appointment.procedure,
@@ -189,21 +189,13 @@ export default function Appointments() {
 
         if (error) throw error;
 
-        // loop through all previously saved appointments 
+        // update the state by removing the canceled appointment from the calendar view 
         setAppointmentSlot((prevAppointments) =>
-          prevAppointments.map((event) => { //map the one we want to change  
-            if (event.appointment_id === selectedAppointment.extendedProps.appointment_id) { // select that appointment if it has a matching appointment id
-              return {
-                ...event, // copy all properties of the current appointment object into a new object and only change the selected specific parts
-                backgroundColor: "#ff4d4d",  // background colour of clot in red
-                extendedProps: { // from extended props do not chnage anything but the status only
-                  ...event.extendedProps,
-                  status: "canceled",
-                },
-              };
-            }
-            return event; //if no match of appointment id, do not make any change
-          })
+          // loop through all current appointments and keep only the ones that don't match the canceled one
+          prevAppointments.filter(
+            // compare each event's appointment id with the one that was canceled, and if it doesn't match, keep it, if matches, remove it
+            (event) => event.appointment_id !== selectedAppointment.extendedProps.appointment_id
+          )
         );
         alert(t("appointments.success-cancel")); // inform upon cancelling success
       } catch (error) {

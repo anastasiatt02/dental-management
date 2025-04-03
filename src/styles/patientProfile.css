@@ -7,6 +7,7 @@
     
 }
 
+/* Profile container */
 .patient-profile-container {
     max-width: 800px;
     margin: 40px auto;
@@ -32,6 +33,7 @@
 
 }
 
+/* Appointments section */
 .appointments-section {
     margin-top: 30px;
 }
@@ -54,7 +56,14 @@
     background: rgba(255, 99, 71, 0.1);
 }
 
-.delete-button {
+.appointment-list.past li:hover p,
+.appointment-list.today li:hover p {
+    text-decoration: underline;
+    color: #0077cc;
+}
+
+/* delete button */
+.delete-patient {
     background: var(--red);
     color: white;
     padding: 10px 15px;
@@ -66,45 +75,45 @@
     transition: background 0.3s ease;
 }
 
-/* .delete-button:hover {
-    background: darkred;
-} */
-
-.edit-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: var(--grey-light);
-    /* color: white; */
-    padding: 8px 12px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+/* edit profile pop up */
+.pop-up {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);/* background*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
 }
 
 .edit-section {
-    position: absolute;
-    right: 20px;
-    top: 80px;
     background: var(--grey-light);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh;
+
 }
 
 .edit-section h3 {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .edit-section input {
     width: 100%;
-    padding: 5px;
+    padding: 8px;
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+/* save and cancel buttons in the pop up */
 .save-button {
     background-color: #40b15a;
     padding: 8px 12px;
@@ -123,5 +132,31 @@
     margin-top: 10px;
     width: 100%;
     border-radius: 5px;
+}
+
+/* edit profile */
+.edit-profile {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 30px 0 0;
+    margin-top: 10px;
+    top: 170px;
+    position: absolute;
+    right: 20px;
+}
+
+.edit-profile .edit-button {
+    position: absolute;
+    background-color: var(--blue);
+    padding: 10px 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    color: white;
+    min-width: 140px;
+    font-weight: bold;
+    top: 20px;
+    right: 20px;
 }
 
