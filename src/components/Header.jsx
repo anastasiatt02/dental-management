@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function Header() {
   // Access translation functions from i18next
-  const {i18n, t} = useTranslation();
+  const { t} = useTranslation();
 
 
 
@@ -22,7 +22,7 @@ export default function Header() {
       <div className='header-content'>
         {/* Logo and clinic name */}
         <div className='logo-container'>
-          <img src="/images/logo.png" alt="Clinic Logo" className='logo-img'/>
+          <img src="public/images/logo.png" alt="Clinic Logo" className='logo-img'/>
           <h1 className='clinic-name'>{t('header.clinic-name')}</h1>
           {/* Retrieves transalted clinic name from localisation files */}
         </div>

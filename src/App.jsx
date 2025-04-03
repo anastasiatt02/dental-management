@@ -13,7 +13,7 @@ import AppointmentHistory from "./pages/AppointmentHistory";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/dental-management">
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<HomePage />} />
