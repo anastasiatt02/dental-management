@@ -226,7 +226,7 @@ export default function CreateAppointment() {
           {/* patient suggestion dropdown */}
           <ul>
               {patientResults.map((patient) => (
-              <li key={patient.id} onChange={() => selectPatient(patient)} style={{cursor: 'pointer', color: 'blue'}}> {patient.full_name}</li>
+              <li key={patient.id} onClick={() => selectPatient(patient)} style={{cursor: 'pointer', color: 'blue'}}> {patient.full_name}</li>
               ))}
           </ul>
 
@@ -238,7 +238,7 @@ export default function CreateAppointment() {
           {/* dentist suggestion dropdown */}
           <ul>
               {dentistResults.map((dentist) => (
-              <li key={dentist.id} onChange={() => selectDentist(dentist)} style={{cursor: 'pointer', color: 'blue'}}> {dentist.full_name}</li>
+              <li key={dentist.id} onClick={() => selectDentist(dentist)} style={{cursor: 'pointer', color: 'blue'}}> {dentist.full_name}</li>
               ))}
           </ul>
 
@@ -250,7 +250,7 @@ export default function CreateAppointment() {
           {/* procedure suggestion dropdown */}
           <ul>
               {procedureResults.map((procedure) => (
-              <li key={procedure.procedure_id} onChange={() => selectProcedure(procedure)} style={{cursor: 'pointer', color: 'blue'}}> {getTranslatedProcedure(procedure)}</li>
+              <li key={procedure.procedure_id} onClick={() => selectProcedure(procedure)} style={{cursor: 'pointer', color: 'blue'}}> {getTranslatedProcedure(procedure)}</li>
               ))}
           </ul>
 
