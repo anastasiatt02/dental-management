@@ -2,6 +2,7 @@ import React from "react";
 import { useUser } from "@clerk/clerk-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "../styles/navbar.css";
 
 export default function Navbar() {
     const {isSignedIn} = useUser();
