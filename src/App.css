@@ -6,59 +6,31 @@
     
 }
 
-/* Header design */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.layout-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-main {
+    flex: 1;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-.header {
-    background-color: var(--blue);
-    color: var(--grey-light);
-    padding: 10px;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-img {
-    height: 80px;
-    width: auto;
-}
-
-.clinic-name {
-    /* margin: 0; */
-    font-size: 1.5rem;
-    color: var(--grey-light);
-}
-
-.auth-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--red);
-    background-color: var(--grey-light);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
 
 /* Dashboard  */
-.dashboard,
-.patients,
-.appointments {
+.dashboard {
     display: flex;
     flex-direction: column;
     /* align-items: center; */
@@ -68,56 +40,13 @@ body {
     padding: 20px;
 }
 
-.patients{
-    align-items: center;
-}
-
-.dashboard h1,
-.patients h1,
-.appointments h1 {
+.dashboard h1 {
     font-size: 2rem;
     color: #343a40;
     margin-bottom: 30px;
 }
 
-.dashboard-actions,
-.patients-actions {
-    display: flex;
-    gap: 20px;
-    /* align-items: center; */
-}
-
-.patients-actions {
-    width: 100%;
-    align-items: center;
-}
-
-.search-bar {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 400px;
-    flex-grow: 0.5;
-}
-
-.patients-list {
-    margin-top: 20px;
-    list-style-type: none;
-    padding: 0;
-    width: 600px;
-}
-
-.patient-item {
-    padding: 10px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
 .action-button-d,
-.action-button-p,
 .appointments-actions {
     padding: 10px 20px;
     font-size: 1.2rem;
@@ -127,79 +56,4 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.action-button-d:hover,
-.action-button-p:hover {
-    /* background-color:#0056b3; */
-    transform: scale(1.05);
-}
-
-.action-button-d:active,
-.action-button-p:active {
-    transform: scale(0.95);
-}
-
-/* patients */
-.form-container { /* shiko ta besh join me appointment qe mos te repeat*/
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: var(--grey-light);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-container h3 {
-    /* color: var(--blue); */
-    text-align: center;
-}
-
-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    color: #333;
-}
-
-form input {
-    width: 95%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid var(--blue);
-    border-radius: 5px;
-    margin-bottom: 15px;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-
-form p {
-    color: var(--red);
-    font-size: 0.9rem;
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
-
-form button[type='submit'] {
-    display: block;
-    width: 100%;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    background-color: var(--blue);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-form button[type='submit']:hover {
-    /* background-color: var(--green); */
-    transform: scale(1.05);
-}
-
-form button[type='submit']:active {
-    transform: scale(0.95);
 }
