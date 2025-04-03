@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
 import { useNavigate, useSearchParams } from 'react-router-dom'; // used for page navivation routes and to read query parameters (like time and date in pre-filled form)
 import { useTranslation } from 'react-i18next';
+import "../styles/createAppointment.css";
 
 // this component allows users (at the moment the dentist) to create a new appointment
 // it supports selecting a patient, a dentist, a procedure, a date and time, and adding any optional notes

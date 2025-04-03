@@ -1,0 +1,90 @@
+:root {
+    --red: #FF0000;
+    --blue: #00BFFF;
+    --green: #ADFF2F;
+    --grey-light: #f4f4f4;
+    
+}
+
+/* create appointment */
+.create-appointment {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px 70px;
+    background: var(--grey-light);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.create-appointment h2 {
+    color: var(--blue);
+    margin-bottom: 20px;
+}
+
+.create-appointment form {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-appointment label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.create-appointment input, 
+.create-appointment textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid var(--blue);
+    border-radius: 5px;
+    outline: none;
+    transition: 1px solid var(--green);
+    margin-top: 8px;
+}
+
+.create-appointment textarea {
+    resize: none;
+    height: 80px;
+    width: 500px;
+}
+
+/* Lists */
+.create-appointment ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+}
+
+.create-appointment ul li {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.cancel-button-new-appt {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 35%;
+    border-radius: 5px;
+}
+
+.create-appointment button[type='submit'] {
+    display: block;
+    width: 200px;
+    padding: 12px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--blue);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 30px auto 0;
+}
+
