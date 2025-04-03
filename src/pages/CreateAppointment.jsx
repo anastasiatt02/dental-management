@@ -226,7 +226,7 @@ export default function CreateAppointment() {
           {/* patient suggestion dropdown */}
           <ul>
               {patientResults.map((patient) => (
-              <li key={patient.id} onClick={() => {alert("clicked" + patient.full_name); selectPatient(patient)}} style={{cursor: 'pointer', color: 'blue'}}> {patient.full_name}</li>
+              <li key={patient.id} onClick={() => selectPatient(patient)} style={{cursor: 'pointer', color: 'blue'}}> {patient.full_name}</li>
               ))}
           </ul>
 
