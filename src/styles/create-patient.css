@@ -9,7 +9,7 @@
 .form-container { 
     max-width: 800px;
     margin: 50px auto;
-    /* padding: 30px; */
+    padding: 30px;
     background-color: var(--grey-light);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@
     box-sizing: border-box;
 }
 
-form label {
+.form-container form label {
     display: block;
     margin-bottom: 5px;
     font-size: 1rem;
@@ -37,24 +37,27 @@ form label {
     margin-top:15px;
 }
 
-form input {
+.form-container form input,
+.form-container form select {
     width: 100%;
     padding: 10px 12px;
     font-size: 1rem;
     border: 1.5px solid var(--blue);
     border-radius: 6px;
     margin-top: 5px;
+    margin-bottom: 8px;
     outline: none;
     transition: border-color 0.3s ease;
+    box-sizing: border-box;
 }
 
-form p {
+.form-container form p {
     color: var(--red);
     font-size: 0.9rem;
-    margin-bottom: 4px 0 10px 2px;
+    margin: 0 0 10px 20px;
 }
 
-form button[type='submit'] {
+.form-container form button[type='submit'] {
     display: block;
     width: 200px;
     padding: 12px 0;
@@ -69,12 +72,12 @@ form button[type='submit'] {
     margin: 30px auto 0;
 }
 
-form button[type='submit']:hover {
+.form-container form button[type='submit']:hover {
     /* background-color: var(--green); */
     transform: scale(1.05);
 }
 
-form button[type='submit']:active {
+.form-container form button[type='submit']:active {
     transform: scale(0.95);
 }
 

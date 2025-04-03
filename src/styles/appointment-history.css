@@ -40,13 +40,14 @@
     border: 1px solid var(--blue);
 }
 
-textarea, input[type="text"]  {
+.appointment-history textarea, 
+.appointment-history input[type="text"]  {
     width: 100%;
     padding: 0.6rem;
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     border-radius: 8px;
-    /* border: 1px solid var(--blue); */
+    border: 1px solid var(--blue);
     font-size: 0.95rem;
 }
 

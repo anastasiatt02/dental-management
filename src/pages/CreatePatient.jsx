@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
-import patientSchema from "../components/patientSchema"; // Schema for validation
-import supabase from "../supabaseClient"; // Supabase database client
-import emailjs from "@emailjs/browser"; // Email sending service
-import { useTranslation } from "react-i18next"; 
-import "../styles/create-patient.css";
+import patientSchema from "../components/patientSchema"; // Schema for validating form input
+import supabase from "../supabaseClient"; // Supabase database client to interact with the backend
+import emailjs from "@emailjs/browser"; // library for Email sending through emailJS
+import { useTranslation } from "react-i18next"; // transaltion support
+import "../styles/create-patient.css"; // css styling
 
 /**
  * CreatePatient component handles:
@@ -49,38 +49,39 @@ export default function CreatePatient() {
 
     /**
      * Handle form submission and save patient data to Supabase
-     * @param {Object} data - Validated form data
+     * insert patient data into Supabase and sends welcome email
      */
     const onSubmit = async (data) => { //connection to supabase
         try {
 
-            // Patient details object
+            // Patient details object as expected by database
             const patientDetails = {
                 full_name:data.full_name,
                 email:data.email,
                 phone_number: data.phone_number,
                 date_of_birth: data.date_of_birth,
+                gender: data.gender,
                 emergency_name: data.emergency_name,
                 emergency_contact: data.emergency_contact,
-                role: "patient", // automatically assign
+                role: "patient", // automatically assign role as patient
                 health_history: [
                      {
                     medical_condition: data.medical_condition,
                     allergies: data.allergies,
                     medications: data.medications,
-                    last_updated: new Date().toISOString(),},],
+                    last_updated: new Date().toISOString(),},], //track when this record was added
             };
 
             // Insert the new patient into Supabase
-            const result = await supabase.from("users").insert([patientDetails]).select();
+            await supabase.from("users").insert([patientDetails]);
 
             //  Send welcome email to new patient created
             await sendConfigEmail(data.email, data.full_name);
-            alert(t("create-patient.submited-form"));
+            alert(t("create-patient.submited-form")); // inform user of success
 
         } catch (error) {
             console.log(t("create-patient.error-new-patient"), error.message);
-            alert(t("create-patient.fail-create-new-patient"));
+            alert(t("create-patient.fail-create-new-patient")); // error message
         }
     };
 
@@ -101,9 +102,9 @@ export default function CreatePatient() {
                 },
                 "TXGcbVCGnLGIuPYLl" // EmailJS public key
             );
-            console.log(t("create-patient.success-emailing")); // debugging
+            console.log(t("create-patient.success-emailing")); // log success to console
         } catch (error) {
-            console.error(t("create-patient.error-emailing"), error);
+            console.error(t("create-patient.error-emailing"), error); // log error to console
         }
     };
 
@@ -141,6 +142,17 @@ export default function CreatePatient() {
                         {t("common.dob")}<span style={{color: 'red'}}>*</span>
                         <input type="date" {...register('date_of_birth')} />
                         {errors.date_of_birth && <p>{errors.date_of_birth.message}</p>}
+                    </label>
+
+                    {/* Gender */}
+                    <label>
+                        {t("common.gender")} <span style={{color: 'red'}}>*</span>
+                        <select {...register("gender")}>
+                            <option value="">{t("create-patient.select-gender")}</option>
+                            <option value="male">{t("common.male")}</option>
+                            <option value="female">{t("common.female")}</option>
+                        </select>
+                        {errors.gender && <p>{errors.gender.message}</p>}
                     </label>
 
                     {/* Emergency contact */}
