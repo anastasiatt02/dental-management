@@ -88,6 +88,8 @@
         "submited-form": "Formulari i pacientit u ruajt me sukses!",
         "error-new-patient": "Një problem ndodhi gjatë krijimit të një pacienti të ri: ",
         "fail-create-new-patient": "Krijimi i pacientit dështoi.",
+        "error-email-exists": "Email-i është përdorur një herë.",
+        "something-wrong": "Dicka shkoi keq.",
         "success-emailing": "Email-i u dërgua me sukses!", 
         "error-emailing": "Një problem ndodhi me dërgimin e email-it: ",
         "form-title": "Krijo pacient të ri",

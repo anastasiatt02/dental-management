@@ -94,6 +94,8 @@
         "submited-form": "Patient form submitted successfully!",
         "error-new-patient": "Error creating patient: ",
         "fail-create-new-patient": "Failed to create patient.",
+        "error-email-exists": "This email is already registered.",
+        "something-wrong": "Something went wrong",
         "success-emailing": "Email sent successfully.", 
         "error-emailing": "Error sending email: ",
         "form-title": "Create new patient",

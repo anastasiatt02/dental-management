@@ -73,14 +73,24 @@ export default function CreatePatient() {
             };
 
             // Insert the new patient into Supabase
-            await supabase.from("users").insert([patientDetails]);
+            const {error} = await supabase.from("users").insert([patientDetails]);
+
+            if (error) {
+                // ff the error message contains a "duplicate key", it means the email is already in use because only one user can use a certain email
+                if (error.message.includes("duplicate key")) { 
+                    alert(t("create-patient.error-email-exists"));
+                } else {
+                    // show a general "something went wrong" message for any other error with the error details
+                    alert(t("create-patient.something-wrong") + error.message);
+                }
+                return; // stop runing the rest of the function if inserting patient failed
+            }
 
             //  Send welcome email to new patient created
             await sendConfigEmail(data.email, data.full_name);
             alert(t("create-patient.submited-form")); // inform user of success
 
         } catch (error) {
-            console.log(t("create-patient.error-new-patient"), error.message);
             alert(t("create-patient.fail-create-new-patient")); // error message
         }
     };
