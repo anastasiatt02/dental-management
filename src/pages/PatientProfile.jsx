@@ -298,7 +298,7 @@ export default function PatientProfile() {
                 <h1 className="profile-header">{t("patient-profile.profile-title")}</h1>
 
                 {/* personal detials dispaly*/}
-                <h3 className="section-header">{t("patient-profile.personal-details")}</h3>
+                <h3 className="patient-profile-section-header">{t("patient-profile.personal-details")}</h3>
                 <p><strong>{t("common.full-name")} </strong>{patient.full_name}</p>
                 <p><strong>{t("common.dob")} </strong>{formatDate(patient.date_of_birth)}</p>
                 <p><strong>{t("common.gender")} </strong>{t(`common.${patient.gender}`)}</p> 
@@ -308,7 +308,7 @@ export default function PatientProfile() {
                 <p><strong>{t("patient-profile.emergency")} </strong>{patient.emergency_name} {patient.emergency_contact || t("patient-profile.missing")}</p>
 
                 {/* health history section */}
-                <h3 className="section-header">{t("patient-profile.health-hist")}</h3>
+                <h3 className="patient-profile-section-header">{t("patient-profile.health-hist")}</h3>
                 {/* check if the patient has at least one health history record */}
                 {patient?.health_history?.length > 0 ? ( 
                     // extract and display the first health history object
@@ -331,7 +331,7 @@ export default function PatientProfile() {
 
                 {/* Display appointments based on today, upcoming or past*/}
                 <div className="appointments-section">
-                    <h3 className="section-header">{t("patient-profile.appointments-sect")}</h3> {/* subheader for the section */}
+                    <h3 className="patient-profile-section-header">{t("patient-profile.appointments-sect")}</h3> {/* subheader for the section */}
                     
                     {/* today */}
                     {appointments.today.length > 0 && (

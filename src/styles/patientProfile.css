@@ -23,7 +23,7 @@
     margin-bottom: 20px;
 }
 
-.section-header {
+.patient-profile-section-header {
     color: var(--blue);
     border-bottom: 2px solid var(--blue);
     padding-bottom: 5px;
