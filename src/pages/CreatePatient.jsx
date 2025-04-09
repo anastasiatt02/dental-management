@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from "@hookform/resolvers/zod";
 import patientSchema from "../components/patientSchema"; // Schema for validating form input
@@ -6,6 +6,8 @@ import supabase from "../supabaseClient"; // Supabase database client to interac
 import emailjs from "@emailjs/browser"; // library for Email sending through emailJS
 import { useTranslation } from "react-i18next"; // transaltion support
 import "../styles/create-patient.css"; // css styling
+import { useNavigate } from "react-router-dom"; // managing page routes 
+
 
 /**
  * CreatePatient component handles:
@@ -19,6 +21,8 @@ import "../styles/create-patient.css"; // css styling
 
 export default function CreatePatient() {
     const {t} = useTranslation();
+
+    const navigate = useNavigate();
 
     // Control if health history is displayed
     // show health history after completing the patient details
@@ -89,6 +93,7 @@ export default function CreatePatient() {
             //  Send welcome email to new patient created
             await sendConfigEmail(data.email, data.full_name);
             alert(t("create-patient.submited-form")); // inform user of success
+            navigate("/patients"); // redirect to patient list after creating new patient
 
         } catch (error) {
             alert(t("create-patient.fail-create-new-patient")); // error message

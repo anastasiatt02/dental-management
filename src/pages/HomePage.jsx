@@ -1,6 +1,6 @@
-import React, { useState }from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 import  { useUser } from '@clerk/clerk-react'; // for authentication
 import { Link } from 'react-router-dom'; //for navigation
 import '../styles/homepage.css';
@@ -9,7 +9,6 @@ import Navbar from '../components/NavBar';
 
 export default function HomePage() {
   
-  const { isSignedIn } = useUser(); // get the login status from Clerk
   const { t } = useTranslation();
   
 

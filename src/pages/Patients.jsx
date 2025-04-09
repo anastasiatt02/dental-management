@@ -63,10 +63,11 @@ export default function Patients() {
             .from('users')
             .select('id, full_name, date_of_birth')
             .eq('role', 'patient')
-            .ilike('full_name', `%${query}%`); //search by name
+            .ilike('full_name', `%${query}%`) //search by name
+            .order('full_name', {ascending: true});
         }
       } else { // if nothing typed in the search bar, fetch all users with role patient
-        request = supabase.from('users').select('id, full_name, date_of_birth').eq('role', 'patient');
+        request = supabase.from('users').select('id, full_name, date_of_birth').eq('role', 'patient').order('full_name', {ascending: true});
       }
 
       // now send the query request to Supabase and wait for a response

@@ -157,19 +157,21 @@ export default function AppointmentHistory() {
         // display appointment detals
         <div className="appointment-details">
           <h2>{t("appointment-history.appointment-details")}</h2>
-          <p>{t("appointment-history.appointment-patient")}
+          <p><strong>{t("appointment-history.appointment-patient")} </strong>
             <span onClick={() => navigate(`/patient-profile/${appointment.patient.id}`)}
               style={{cursor: 'pointer'}}>
               {appointment.patient.full_name} 
             </span>
           </p>
-          <p>{t("appointment-history.appointment-procedure")}{translateProcedure()}</p>
-          <p>{t("appointment-history.appointment-date")} {new Date(appointment.appointment_date).toLocaleDateString()}</p>
-          <p>{t("appointment-history.appointment-pre-booking")} {appointment.appointment_details || t("appointment-history.no-details")}</p>
+          <p><strong>{t("appointment-history.appointment-procedure")}</strong> {translateProcedure()}</p>
+          <p><strong>{t("appointment-history.appointment-date")}</strong> {new Date(appointment.appointment_date).toLocaleDateString()}</p>
+          {appointment.appointment_details && (
+            <p><strong>{t("appointment-history.appointment-pre-booking")}</strong> {appointment.appointment_details}</p>
+          )}  {/* hide what is not filled */}
         
           {/* drop down menu to update the appoitnment status */}
           <div className="status-update">
-            <label>{t("appointment-history.appointment-status")}</label>
+            <label><strong>{t("appointment-history.appointment-status")}</strong></label>
             <select value={status} onChange={(e) => statusChange(e.target.value)}>
               <option value="scheduled">{t("appointment-history.scheduled")}</option>
               <option value="completed">{t("appointment-history.completed")}</option>
@@ -179,7 +181,7 @@ export default function AppointmentHistory() {
         
           {/* input fields for user to add new history information */}
           <h2>{t("appointment-history.new-history-records")}</h2>
-          <p>{t("appointment-history.appointment-procedure")} {translateProcedure()}</p> {/* user can see procedure in the selected language */}
+          <p><strong>{t("appointment-history.appointment-procedure")}</strong> {translateProcedure()}</p> {/* user can see procedure in the selected language */}
           <input type="text" placeholder={t("appointment-history.file")} value={fileUrl} onChange={(e) => setFileUrl(e.target.value)}/>
           <textarea placeholder={t("appointment-history.procedure-details")} value={procedureDetails} onChange={(e) => setProcedureDetails(e.target.value)}/>
           <input type="text" placeholder={t("appointment-history.treatment-materials")} value={treatmentMaterials} onChange={(e) => setTreatmentMaterials(e.target.value)} />
@@ -190,15 +192,17 @@ export default function AppointmentHistory() {
           {historyRecords.length > 0 ? (
             historyRecords.map((record, index) => (
               <div key={index} className="history-item">
-                {/* <p>{t("appointment-history.appointment-procedure")} {record.procedure_name}</p> */}
-                <p>{t("appointment-history.doctor-notes")}{record.notes || t("appointment-history.no-notes")}</p>
+                {record.notes && (
+                  <p><strong>{t("appointment-history.doctor-notes")}</strong>{record.notes}</p>
+                )}
+
                 {record.file_url && (
                   <p>
-                    {t("appointment-history.file")}<strong><a href={record.file_url} target="_blank" rel="noopener noreferrer">{record.file_url}</a></strong>
+                    <strong>{t("appointment-history.file")}<a href={record.file_url} target="_blank" rel="noopener noreferrer">{record.file_url}</a></strong>
                   </p>
                 )}
-                <p>{t("appointment-history.procedure-details")} {record.procedure_details || t("appointment-history.no-details")}</p>
-                <p>{t("appointment-history.treatment-materials")} {record.treatment_materials || t("patient-profile.not-specified")}</p>
+                <p><strong>{t("appointment-history.procedure-details")}</strong> {record.procedure_details || t("appointment-history.no-details")}</p>
+                <p><strong>{t("appointment-history.treatment-materials")}</strong> {record.treatment_materials || t("patient-profile.not-specified")}</p>
                 <p><em>{t("appointment-history.recorded")} {new Date(record.recorded_at).toLocaleDateString()}</em></p>
               </div>
             ))

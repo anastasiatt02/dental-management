@@ -24,13 +24,12 @@
 }
 
 .section-header {
-    color: #333;
+    color: var(--blue);
     border-bottom: 2px solid var(--blue);
     padding-bottom: 5px;
     margin-bottom: 10px;
     margin-top: 40px;
     padding-top: 20px;
-
 }
 
 /* Appointments section */
@@ -103,7 +102,7 @@
     width: 100%;
     max-width: 400px;
     max-height: 90vh;
-
+    text-align: left;
 }
 
 .edit-section h3 {
@@ -114,9 +113,10 @@
 .edit-section input {
     width: 100%;
     padding: 8px;
-    margin-top: 5px;
+    margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 11px;
 }
 
 /* save and cancel buttons in the pop up */
