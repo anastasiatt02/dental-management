@@ -37,7 +37,7 @@ export default function Header() {
           </SignedOut>
           <SignedIn>
             {/* Display button of profile when user is signed in */}
-            <UserButton className='auth-button' redirectUrl='/'/>
+            <UserButton className='auth-button' redirectUrl={import.meta.env.BASE_URL}/>
           </SignedIn>
         </nav>
       </div>
