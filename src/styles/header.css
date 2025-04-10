@@ -45,3 +45,24 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
 }
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .logo-img {
+        height: 60px;
+    }
+
+    .clinic-name {
+        font-size: 1.2rem;
+    }
+
+    .auth-button {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}

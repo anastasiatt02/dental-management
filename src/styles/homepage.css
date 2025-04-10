@@ -85,3 +85,54 @@
     font-size: 1rem;
     margin-bottom: 5px;
 }
+
+/* mobile queries for responsive design */
+@media (max-width: 600px) {
+    .services-location-times {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .services-section,
+    .opening-hours,
+    .location-section {
+        flex: 1 1 100%;
+        padding: 15px;
+        
+    }
+
+    .welcome-section h1 {
+        font-size: 1.5rem;
+    }
+
+    .services-section h2,
+    .story-section h2,
+    .opening-hours h2,
+    .location-section h2 {
+        font-size: 1.20rem;
+    }
+
+    .map iframe {
+        height: 180px;
+    }
+
+    .welcome-section,
+    .story-section,
+    .services-section,
+    .location-section,
+    .opening-hours {
+        padding: 15px;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+
+    .services-list {
+        padding-left: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .opening-hours li {
+        font-size: 0.9rem;
+    }
+
+}
