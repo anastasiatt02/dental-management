@@ -165,7 +165,7 @@ export default function Appointments() {
 
       // if (error) throw error; // inform if anything unexpected happens
 
-      alert(t("appointments.success-update")); // inform upon successful update
+      alert(t("appointments.success-modify")); // inform upon successful update
       setmodifyPanel(false); // close modifying pop up
     } catch (error) {
       console.error(t("appointments.error-update"), error.message); // inform if any error
