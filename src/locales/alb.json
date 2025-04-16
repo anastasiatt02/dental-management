@@ -150,7 +150,7 @@
         "fetch-error": "Një problem ndodhi gjatë marrjes së takimeve: ",
         "success-reschedule": "Takimi u riplanifikua me sukses",
         "error-reschedule": "Një problem ndodhi me riplanifikimin e takimit: ",
-        "success-modify": "Takimi u përditësua me sukses",
+        "success-update": "Takimi u përditësua me sukses.",
         "error-modify": "Një problem ndodhi gjatë ripërditësimit të takimit: ",
         "confirm-cancel": "Jeni të sigurtë që dëshironi ta anuloni këtë takim?",
         "success-cancel": "Takimi u anulua me sukses!",
