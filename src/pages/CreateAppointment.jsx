@@ -12,7 +12,7 @@ export default function CreateAppointment() {
 
     const navigate = useNavigate();
     const [searchParams] = useSearchParams(); // exact parameters from url
-    const {t, i18n} = useTranslation(); // handle translations
+    const {t} = useTranslation(); // handle translations
 
     // prefilled date and time from calendar click
     const prefilledDate = searchParams.get("date");
@@ -126,8 +126,8 @@ export default function CreateAppointment() {
           // query 'procedure' table in SUpabase to find procedures where the name contains the typed characters (case insensitive match)
           const {data, error} = await supabase 
           .from("procedure")
-          .select("procedure_id, procedure_name")
-          .ilike("procedure_name", `%${procedureQuery}%`);
+          .select("procedure_id, procedure_name");
+          // .ilike("procedure_name", `%${procedureQuery}%`);
   
           if (error) throw error; //if the query encounters an error throw it
           setProcedureResults(data); // if data returned with success, store the matching procedures in state to show them in the list of procedures
@@ -139,6 +139,12 @@ export default function CreateAppointment() {
       fetchProcedures(); //call the async function to perform the fetch
     }, [procedureQuery]); // rerun if the user types
     
+    // procedures based on search language - filter searched procedure based on the selected language
+    const filterLanguage = procedureResults.filter((procedure) => {
+      const translatedProcedure = getTranslatedProcedure(procedure).toLocaleLowerCase(); // get translated version of procedure name based on current chosen language
+      return translatedProcedure.includes(procedureQuery.toLowerCase()); // check if user input exists inside the translated procedure names
+    });
+
     const selectProcedure = (procedure) => { 
       setSelectedProcedure(procedure); // store the selected procedure in state
       setProcedureQuery(getTranslatedProcedure(procedure)); //replace the procedure search with the selected procedure
@@ -249,7 +255,7 @@ export default function CreateAppointment() {
           </label>
           {/* procedure suggestion dropdown */}
           <ul>
-              {procedureResults.map((procedure) => (
+              {filterLanguage.map((procedure) => (
               <li key={procedure.procedure_id} onClick={() => selectProcedure(procedure)} style={{cursor: 'pointer', color: 'blue'}}> {getTranslatedProcedure(procedure)}</li>
               ))}
           </ul>
