@@ -106,7 +106,7 @@
         "already-booked-slot": "Ky orar është rezervuar tashmë. Ju lutemi zgjidhni një orar tjetër.",
         "new-appointment-success": "Takimi u krijua me sukses!",
         "error-saving-appointment": "Një problem ndodhi gjatë ruajtjes së takimit: ",
-        "new-appointment-fail": "Krijimi i takimit dështoi. Provoni përsëri.",
+        "new-appointment-fail": "Krijimi i takimit dështoi.",
         "select-gender": "Zgjidh gjininë",
         "gender-required": "Gjinia është e detyrueshme"      
     },

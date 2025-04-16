@@ -162,7 +162,7 @@ export default function CreateAppointment() {
       }
   
       // calculate appoitnment start and end time
-      const formatedDateTime = `${appointmentDate}T${appointmentTime}:00Z`; // combine selected date and time into a full ISO timestamp yyyy.mm.dd hh.mm.ssz
+      const formatedDateTime = `${appointmentDate}T${appointmentTime}`; // combine selected date and time into a full ISO timestamp yyyy.mm.dd hh.mm.ssz
       const startTime = new Date(formatedDateTime);
       const procedureDuration = selectedProcedure.duration_minutes || 30; // get duration of the selected procedure, 30 min if not specified
       const endTime = new Date(startTime.getTime() + procedureDuration * 60000); // calculate the end time of the appointment based on duration
